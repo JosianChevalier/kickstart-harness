@@ -82,8 +82,8 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
-| doctrine prompt | ~ | `prompts/doctrine.md` | walked for two paragraphs. "Cartographer" becomes "Talk like a map", text below the table; "Whiteboard" leaves for its own prompt |
-| whiteboard prompt | * | `prompts/doctrine.md`, `rules/writing.md` | walked, written in `prompts/whiteboard.md`; chained in the three primaries |
+| doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the map, draw, write prompt |
+| map, draw, write prompt | * | `prompts/doctrine.md`, `rules/writing.md` | every answer and file goes through three stages: the abstraction filter, the drawing, lean words. Written in `prompts/map-draw-write.md`, chained in the three primaries. Open: the user's read of stages 1 and 3 |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
@@ -104,10 +104,6 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | acceptance of the harness | * | spec §16 | to check: drawings use the project's domain, not the ticket shop of the whiteboard's examples |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
 
-"Talk like a map", the doctrine paragraph, settled word for word; it says how to talk, nothing of who the user is or what the subject is:
-
-> Talk like a map. A map is read by someone who has never been to the territory: it shows where they are, what is around and the way to the next place; it does not describe the ground. Filter first, detail second. Answer the question, not the topic. Stop at sufficient: sufficiency beats completeness. Lead with the verdict, the hazard, the highest-leverage next change (Minto). A map has a you-are-here: say where the answer sits in the whole before saying what it is. A map has a legend: a term is defined the first time it is used, in plain words, in parentheses. A map has a scale: one level of detail per answer, the level below folded. Fold implementation detail until it changes a decision or is asked for; a fold is visible: what it holds is counted and named by kind, so nothing said is missing and nothing unsaid is hidden.
-
 The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
 OpenCode wiring, as the base does it: primaries declared in `opencode.json` as chains of `{file:./prompts/…}`, built-in `build` and `plan` disabled; subagents as markdown in `agents/`; rules through `instructions` globs, reaching subagents too; verified facts in `~/.claude/opencode-agents.work.md`.
@@ -125,7 +121,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
     | plan | the steps to come | a conspiracy board (the Pepe Silvia meme); keeping score | a done step is one line; what matters for later lives only in the step it concerns, and leaves with it |
     | study | open | keeping score; taken down in evidence; the file kept on someone | only what has an impact stays (Chekhov's gun) |
 
-    Doctrine attractors: Saint-Exupéry (nothing left to take away), Zinsser (clutter is the disease), Feynman. Open: Gowers, Thing Explainer.
+
   - [ ] testing practice
   - [ ] the others, in table order
 - [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
