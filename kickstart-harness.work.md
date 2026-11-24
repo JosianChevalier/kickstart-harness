@@ -39,7 +39,10 @@ STAGE 2 ............ a new session
 
 ### Commits
 
-- One reviewable change per commit, on a branch. Not trunk-based: no shippable-branch or continuous-delivery discipline.
+- One reviewable change per commit, small: a unit of thought, a quick functional change or a quick refactor.
+- Every commit leaves the branch working, its tests passing; the tests come with the change they prove.
+- The subject follows Conventional Commits (`feat:`, `fix:`, `refactor:`), as the users' repositories already do.
+- On a branch, not trunk-based: no shippable-branch or continuous-delivery discipline.
 - A commit lands automatically once the user validates it.
 - The body says why; and how, when the how is complicated.
 - Two readers. The author follows what they can; the reviewer knows backend and goes deeper. Commits are cut for the reviewer, so several can be made in a row below the author's level.
@@ -85,7 +88,7 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
 | skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | it forbids recording unresolved questions |
 | skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | reworked on the commit cycle above |
-| skill: commit | ~ | `old-claude/skills/atomic-commit`, `old-claude/rules/one-change-one-commit.md` | reduced to one reviewable change |
+| skill: commit | ~ | `old-claude/skills/atomic-commit`, `old-claude/agents/committer.md` | walked. Kept as written: what counts as one change and what does not, the red flags, the subject rules, stage by name, never amend, never push. Left out: the committer sub-agent with its wrapper script and hook, the triggers forcing TDD and atomic refactoring, "one refactoring move" as a unit, gitmoji. The gate (validated, then it lands) belongs to the stage, with the coach |
 | skill: review walkthrough | ~ | `old-claude/skills/review-walkthrough` | |
 | skill: testing | ~ | `old-claude/skills/test`, `in-memory-adapters`, `old-claude/rules/test-types.md`, `no-mockito.md` | Java and Kotlin, to redo for Python; evidence reporting and concurrent requests have no source |
 | skill: clean code, Python | = | `skills/clean-code-python` | |
@@ -102,8 +105,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, one per turn. ← next: commits
-  - [ ] commits
+- [ ] Walk the elements, one per turn. ← next: backend coach
   - [ ] backend coach. Open: "always start with cognitive load", said against an agent that proposed the security fixes first in a refactoring: order the work by what the user can take in, or make the code readable first and fix after?
   - [ ] testing practice
   - [ ] the others, in table order
