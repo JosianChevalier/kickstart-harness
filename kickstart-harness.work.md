@@ -60,7 +60,7 @@ STAGE 2 ............ a new session
 - It never takes a domain or design decision for the user; it guides them through it.
 - It teaches fundamentals and patterns, not syntax: low-abstraction coding may soon be gone.
 - Everything is an opportunity to learn, offered, never pushed.
-- The base prompts go in whole, word for word: GPT needs every line, nothing is condensed.
+- The base prompts keep every idea they hold: GPT needs each one spelled out, nothing is condensed.
 - A security flaw met in existing code is not fixed on the spot. It is made visible at once, marked ⚠, in one line: what an attacker could do, and that it will be patched. It goes in the notebook, and every flaw noted there is handled before the session ends.
 - Concerns it checks, somewhat complete at first, tweaked by its users afterwards:
   - race conditions, atomicity, persistence
@@ -73,7 +73,7 @@ STAGE 2 ............ a new session
 - The philosophy layer stays out; the doctrine / know-how split is kept in each element.
 - Know-how is not cut, and a little is added: OpenCode with GPT models needs it.
 - No TDD. A full testing practice is its own later point.
-- The prompts are written in plain, basic, terse English: short sentences, common words, no idiom. Not every user is fluent in English, and GPT writes in the register of its context, so the instructions are the example. Attractors stay precise, always: the field's terms and its names (cognitive load, race condition, dependency inversion, Tufte) are never simplified.
+- Everything that ends up in the harness, every prompt, rule, skill and agent, copied or new, is written in plain, basic, terse English: short sentences, common words, no idiom. Not every user is fluent in English, and GPT writes in the register of its context, so the instructions are the example. Attractors stay precise, always: the field's terms and its names (cognitive load, race condition, dependency inversion, Tufte) are never simplified.
 
 ## Elements
 
@@ -86,13 +86,13 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | whiteboard prompt | * | `prompts/doctrine.md`, `rules/writing.md` | walked, written in `prompts/whiteboard.md`; chained in the three primaries |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
-| backend coach prompt | * | fragments: `rules/writing.md`, `skills/strategic-design`, `agents/philosophy-guide.md` | whole element |
+| backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
 | rules: writing, session-design, subtraction, documents | = | `rules/` | |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | it says not to commission independent review |
 | rule: security and tool boundaries | * | spec §15; `prompts/doctrine.md` holds the cybersecurity posture | permissions: none declared in the base |
 | skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
 | skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | it forbids recording unresolved questions |
-| skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | reworked on the commit cycle above |
+| skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | reworked on the commit cycle above. It settles the mecha suit's "nothing enters the code that a navigator did not say" against commits made in a row below the author's level |
 | skill: commit | ~ | `old-claude/skills/atomic-commit`, `old-claude/agents/committer.md` | walked. Kept as written: what counts as one change and what does not, the red flags, the subject rules, stage by name, never amend, never push. Left out: the committer sub-agent with its wrapper script and hook, the triggers forcing TDD and atomic refactoring, "one refactoring move" as a unit, gitmoji. The gate (validated, then it lands) belongs to the stage, with the coach |
 | skill: review walkthrough | ~ | `old-claude/skills/review-walkthrough` | |
 | skill: testing | ~ | `old-claude/skills/test`, `in-memory-adapters`, `old-claude/rules/test-types.md`, `no-mockito.md` | Java and Kotlin, to redo for Python; evidence reporting and concurrent requests have no source |
@@ -101,7 +101,7 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | skill: kaizen | ~ | `skills/kaizen` | depends on the philosophy scout |
 | skill: ascii | * | a third in `rules/writing.md`; spec §17 | |
 | agents: plan reviewer, stage reviewer | * | checklist in `write-plan` phase 5; spec §10 | whether they stay |
-| acceptance of the harness | * | spec §16 | |
+| acceptance of the harness | * | spec §16 | to check: drawings use the project's domain, not the ticket shop of the whiteboard's examples |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
 
 "Talk like a map", the doctrine paragraph, settled word for word; it says how to talk, nothing of who the user is or what the subject is:
@@ -114,8 +114,9 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, one per turn. ← next: backend coach
-  - [ ] backend coach. Open: what it adds on top of the mecha suit: the agent proposes backend design and teaches it, who the user is. Acceptance should check that drawings use the project's domain, not the ticket shop of the whiteboard's examples.
+- [ ] Walk the elements, one per turn. ← next: plain language
+  - [ ] plain language: how the whole level design pulls GPT toward it, in every file. The whiteboard prompt and "Talk like a map" are still in the dense register.
+  - [ ] hoarding: GPT turns every work file into a record of all that was said and done, thousands of tokens. A doctrine paragraph against it, "what is done dies with the session". To check first: whether the base's own words ("changelog", "decision log", "backlog", "record") pull toward it, as pink elephants.
   - [ ] testing practice
   - [ ] the others, in table order
 - [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
