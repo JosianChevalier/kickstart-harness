@@ -82,13 +82,12 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
-| doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the map and draw prompts; in their place, the paragraph below the table, naming the three stages |
-| map prompt, draw prompt | * | `prompts/doctrine.md`, `rules/writing.md` | stages 1 and 2 of an answer to the user. Written in `prompts/map.md` and `prompts/draw.md`, chained in the three primaries. Open: the user's read of the map |
-| write-lean prompt | * | | stage 3 of an answer to the user. Written in `prompts/write-lean.md`, chained in the three primaries. Open: the user's read |
+| doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the four answer prompts; in their place, the two paragraphs below the table |
+| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: probes; the draw prompt in plain words |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
-| rules: writing, session-design, subtraction, documents | = | `rules/` | |
+| rules: writing, session-design, subtraction, documents | = | `rules/` | the writing rule's chat section duplicates the four answer prompts: one home to choose |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | it says not to commission independent review |
 | rule: security and tool boundaries | * | spec §15; `prompts/doctrine.md` holds the cybersecurity posture | permissions: none declared in the base |
 | skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
@@ -105,15 +104,14 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | acceptance of the harness | * | spec §16 | to check: drawings use the project's domain, not the ticket shop of the whiteboard's examples |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
 
-The doctrine paragraph naming the three stages:
+The doctrine paragraph naming the four steps:
 
-> Every answer to the user goes through three stages, in this order:
+> Every answer to the user is a pipeline of four steps. Each step takes what the step before returns.
 >
-> 1. **Map.** The abstraction filter: keep what the reader needs now, take out the rest.
-> 2. **Draw.** Reduce the extraneous cognitive load (Sweller): show all that can be seen.
-> 3. **Write lean.** Say what is left, in few and plain words.
->
-> Each stage works only on what the stage before left.
+> 1. **Filter and group**, like a map: keep what the reader needs now, group the rest into clusters.
+> 2. **Represent visually**: draw all that can be seen. It reduces the extraneous cognitive load (Sweller).
+> 3. **Set the hierarchy**, of information and of the page: the point first, the big labels readable alone.
+> 4. **Write lean**: say what is left, in few and plain words.
 
 The doctrine paragraph on writing for an agent, a file or a brief. Only clutter matters there, not style:
 
