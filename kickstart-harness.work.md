@@ -84,7 +84,7 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | system prompt | = | `prompts/system.md` | |
 | doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the map and draw prompts; in their place, the paragraph below the table, naming the three stages |
 | map prompt, draw prompt | * | `prompts/doctrine.md`, `rules/writing.md` | stages 1 and 2 of an answer to the user. Written in `prompts/map.md` and `prompts/draw.md`, chained in the three primaries. Open: the user's read of the map |
-| write-lean prompt | * | | stage 3, and every other text: files, briefs for other agents. Written in `prompts/write-lean.md`; chained in the three primaries, to bring to subagents and file-writing skills. Open: the user's read |
+| write-lean prompt | * | | stage 3 of an answer to the user. Written in `prompts/write-lean.md`, chained in the three primaries. Open: the user's read |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
@@ -114,6 +114,10 @@ The doctrine paragraph naming the three stages:
 > 3. **Write lean.** Say what is left, in few and plain words.
 >
 > Each stage works only on what the stage before left.
+
+The doctrine paragraph on writing for an agent, a file or a brief. Only clutter matters there, not style:
+
+> Writing for an agent, in a file or a brief: do not clutter it. Clutter is the disease (Zinsser). Stop when there is nothing left to take away (Saint-Exupéry). Every line must fire (Chekhov's gun): the reader acts on it, or it goes. What is done is dead: the code holds it, the file does not. No file is a bureaucrat's record. No file is for keeping score.
 
 The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
