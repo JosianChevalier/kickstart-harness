@@ -99,7 +99,7 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | acceptance of the harness | * | spec §16 | |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
 
-The spec is the pasted "Agentic development harness — portable specification"; where it and the model above disagree, the model wins.
+The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
 OpenCode wiring, as the base does it: primaries declared in `opencode.json` as chains of `{file:./prompts/…}`, built-in `build` and `plan` disabled; subagents as markdown in `agents/`; rules through `instructions` globs, reaching subagents too; verified facts in `~/.claude/opencode-agents.work.md`.
 
