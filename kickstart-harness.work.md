@@ -116,7 +116,16 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 - [ ] Walk the elements, one per turn. ← next: plain language
   - [ ] plain language: how the whole level design pulls GPT toward it, in every file. The whiteboard prompt and "Talk like a map" are still in the dense register.
-  - [ ] hoarding: GPT turns every work file into a record of all that was said and done, thousands of tokens. A doctrine paragraph against it, "what is done dies with the session". To check first: whether the base's own words ("changelog", "decision log", "backlog", "record") pull toward it, as pink elephants.
+  - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
+
+    | File | It is | It is not | Rule |
+    |---|---|---|---|
+    | notebook | your backlog, your drafts | your secret diary | do not bloat it; an item leaves as soon as it is treated |
+    | work file | open | a bureaucrat's record | nothing is written for the record |
+    | plan | the steps to come | a conspiracy board (the Pepe Silvia meme); keeping score | a done step is one line; what matters for later lives only in the step it concerns, and leaves with it |
+    | study | open | keeping score; taken down in evidence; the file kept on someone | only what has an impact stays (Chekhov's gun) |
+
+    Doctrine attractors: Saint-Exupéry (nothing left to take away), Zinsser (clutter is the disease), Feynman. Open: Gowers, Thing Explainer.
   - [ ] testing practice
   - [ ] the others, in table order
 - [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
