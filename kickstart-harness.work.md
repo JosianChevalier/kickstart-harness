@@ -73,6 +73,7 @@ STAGE 2 ............ a new session
 - The philosophy layer stays out; the doctrine / know-how split is kept in each element.
 - Know-how is not cut, and a little is added: OpenCode with GPT models needs it.
 - No TDD. A full testing practice is its own later point.
+- The prompts are written in plain, basic, terse English: short sentences, common words, no idiom. Not every user is fluent in English, and GPT writes in the register of its context, so the instructions are the example. Attractors stay precise, always: the field's terms and its names (cognitive load, race condition, dependency inversion, Tufte) are never simplified.
 
 ## Elements
 
