@@ -83,7 +83,7 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
 | doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the four answer prompts; in their place, the two paragraphs below the table |
-| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: probes; the draw prompt in plain words |
+| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: a probe on GPT (Sonnet follows them); the word "folded" leaks into answers as jargon; two ⚠ per drawing where one is asked; the draw prompt in plain words |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
