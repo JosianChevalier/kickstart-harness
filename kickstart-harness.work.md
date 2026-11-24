@@ -82,8 +82,9 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
-| doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the map, draw, write prompt |
-| map, draw, write prompt | * | `prompts/doctrine.md`, `rules/writing.md` | every answer and file goes through three stages: the abstraction filter, the drawing, lean words. Written in `prompts/map-draw-write.md`, chained in the three primaries. Open: the user's read of stages 1 and 3 |
+| doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the map and draw prompts; in their place, the paragraph below the table, naming the three stages |
+| map prompt, draw prompt | * | `prompts/doctrine.md`, `rules/writing.md` | stages 1 and 2 of an answer to the user. Written in `prompts/map.md` and `prompts/draw.md`, chained in the three primaries. Open: the user's read of the map |
+| write-lean prompt | * | | stage 3, and every other text: files, briefs for other agents. Written in `prompts/write-lean.md`; chained in the three primaries, to bring to subagents and file-writing skills. Open: the user's read |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
@@ -104,6 +105,16 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | acceptance of the harness | * | spec §16 | to check: drawings use the project's domain, not the ticket shop of the whiteboard's examples |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
 
+The doctrine paragraph naming the three stages:
+
+> Every answer to the user goes through three stages, in this order:
+>
+> 1. **Map.** The abstraction filter: keep what the reader needs now, take out the rest.
+> 2. **Draw.** Reduce the extraneous cognitive load (Sweller): show all that can be seen.
+> 3. **Write lean.** Say what is left, in few and plain words.
+>
+> Each stage works only on what the stage before left.
+
 The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
 OpenCode wiring, as the base does it: primaries declared in `opencode.json` as chains of `{file:./prompts/…}`, built-in `build` and `plan` disabled; subagents as markdown in `agents/`; rules through `instructions` globs, reaching subagents too; verified facts in `~/.claude/opencode-agents.work.md`.
@@ -111,7 +122,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 ## Steps
 
 - [ ] Walk the elements, one per turn. ← next: plain language
-  - [ ] plain language: how the whole level design pulls GPT toward it, in every file. Stage 2 of the map, draw, write prompt is still in the dense register.
+  - [ ] plain language: how the whole level design pulls GPT toward it, in every file. The draw prompt is still in the dense register.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
 
     | File | It is | It is not | Rule |
