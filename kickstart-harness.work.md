@@ -132,9 +132,9 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
     | File | It is | It is not | Rule |
     |---|---|---|---|
     | notebook | your backlog, your drafts | your secret diary | do not bloat it; an item leaves as soon as it is treated |
-    | work file | open | a bureaucrat's record | nothing is written for the record |
+    | work file | what the conversation crystallized | a bureaucrat's record | nothing is written for the record |
     | plan | the steps to come | a conspiracy board (the Pepe Silvia meme); keeping score | a done step is one line; what matters for later lives only in the step it concerns, and leaves with it |
-    | study | open | keeping score; taken down in evidence; the file kept on someone | only what has an impact stays (Chekhov's gun) |
+    | study | the ruling, not the trial: the conclusion and its consequence | keeping score; taken down in evidence; the file kept on someone | only what has an impact stays (Chekhov's gun) |
 
 
   - [ ] testing practice

@@ -10,6 +10,6 @@ Cartographers call this generalization. Do the same:
 - **Keep one scale.** Stay at a single level of abstraction. The level below stays folded until it changes a decision or the reader asks for it.
 - **Mark the you-are-here.** Say where the answer sits in the whole before you say what it is.
 - **Give the legend.** Define a term the first time you use it, in plain words, in parentheses.
-- **Put the capital first.** Lead with the verdict, the hazard, the highest-leverage next change (Minto).
+- **Lead with the verdict.** Then the hazard, then the highest-leverage next change (Minto).
 
 The London Tube map (Beck) is the model. It drops the streets and the true distances. It keeps the lines and the stations, because the traveller only decides where to change.
