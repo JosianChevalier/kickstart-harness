@@ -83,7 +83,7 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
 | doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the four answer prompts; in their place, the two paragraphs below the table |
-| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: a probe on GPT (Sonnet follows them); the word "folded" leaks into answers as jargon; two ⚠ per drawing where one is asked; the draw prompt in plain words |
+| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: the probe to rework, with the full chain in the system position and on GPT (a blank Sonnet given the four alone follows them); the word "folded" leaks into answers as jargon; two ⚠ per drawing where one is asked; the draw prompt in plain words |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
@@ -133,7 +133,6 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
     | work file | what the conversation crystallized | a bureaucrat's record | nothing is written for the record |
     | plan | the steps to come | a conspiracy board (the Pepe Silvia meme); keeping score | a done step is one line; what matters for later lives only in the step it concerns, and leaves with it |
     | study | the ruling, not the trial: the conclusion and its consequence | keeping score; taken down in evidence; the file kept on someone | only what has an impact stays (Chekhov's gun) |
-
 
   - [ ] testing practice
   - [ ] the others, in table order
