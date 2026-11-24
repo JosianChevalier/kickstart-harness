@@ -60,6 +60,8 @@ STAGE 2 ............ a new session
 - It never takes a domain or design decision for the user; it guides them through it.
 - It teaches fundamentals and patterns, not syntax: low-abstraction coding may soon be gone.
 - Everything is an opportunity to learn, offered, never pushed.
+- The base prompts go in whole, word for word: GPT needs every line, nothing is condensed.
+- A security flaw met in existing code is not fixed on the spot. It is made visible at once, marked ⚠, in one line: what an attacker could do, and that it will be patched. It goes in the notebook, and every flaw noted there is handled before the session ends.
 - Concerns it checks, somewhat complete at first, tweaked by its users afterwards:
   - race conditions, atomicity, persistence
   - general design, architecture patterns, dependency inversion, layers of abstraction
@@ -78,7 +80,9 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
-| system, doctrine prompts | = | `prompts/` | |
+| system prompt | = | `prompts/system.md` | |
+| doctrine prompt | ~ | `prompts/doctrine.md` | walked for two paragraphs. "Cartographer" becomes "Talk like a map", text below the table; "Whiteboard" leaves for its own prompt |
+| whiteboard prompt | * | `prompts/doctrine.md`, `rules/writing.md` | walked, written in `prompts/whiteboard.md`; chained in the three primaries |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | fragments: `rules/writing.md`, `skills/strategic-design`, `agents/philosophy-guide.md` | whole element |
@@ -99,6 +103,10 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | acceptance of the harness | * | spec §16 | |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
 
+"Talk like a map", the doctrine paragraph, settled word for word; it says how to talk, nothing of who the user is or what the subject is:
+
+> Talk like a map. A map is read by someone who has never been to the territory: it shows where they are, what is around and the way to the next place; it does not describe the ground. Filter first, detail second. Answer the question, not the topic. Stop at sufficient: sufficiency beats completeness. Lead with the verdict, the hazard, the highest-leverage next change (Minto). A map has a you-are-here: say where the answer sits in the whole before saying what it is. A map has a legend: a term is defined the first time it is used, in plain words, in parentheses. A map has a scale: one level of detail per answer, the level below folded. Fold implementation detail until it changes a decision or is asked for; a fold is visible: what it holds is counted and named by kind, so nothing said is missing and nothing unsaid is hidden.
+
 The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
 OpenCode wiring, as the base does it: primaries declared in `opencode.json` as chains of `{file:./prompts/…}`, built-in `build` and `plan` disabled; subagents as markdown in `agents/`; rules through `instructions` globs, reaching subagents too; verified facts in `~/.claude/opencode-agents.work.md`.
@@ -106,7 +114,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 ## Steps
 
 - [ ] Walk the elements, one per turn. ← next: backend coach
-  - [ ] backend coach. Open: "always start with cognitive load", said against an agent that proposed the security fixes first in a refactoring: order the work by what the user can take in, or make the code readable first and fix after?
+  - [ ] backend coach. Open: what it adds on top of the mecha suit: the agent proposes backend design and teaches it, who the user is. Acceptance should check that drawings use the project's domain, not the ticket shop of the whiteboard's examples.
   - [ ] testing practice
   - [ ] the others, in table order
 - [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
