@@ -1,0 +1,32 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "backend-coach",
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    },
+    "mechasuit": {
+      "description": "Collaborative mecha suit: the user navigates, the agent drives.",
+      "mode": "primary",
+      "prompt": "{file:./prompts/system.md}\n\n{file:./prompts/doctrine.md}\n\n{file:./prompts/mecha-suit.md}\n\n{file:./output-styles/extended-mind.md}\n\n{file:./prompts/back-of-the-napkin.md}"
+    },
+    "robot": {
+      "description": "Autonomous execution with the Groveling Worm voice.",
+      "mode": "primary",
+      "prompt": "{file:./prompts/system.md}\n\n{file:./prompts/doctrine.md}\n\n{file:./prompts/autopilot.md}\n\n{file:./output-styles/extended-mind.md}\n\n{file:./prompts/back-of-the-napkin.md}\n\n{file:./prompts/groveling-worm.md}"
+    },
+    "backend-coach": {
+      "description": "Backend coach: takes a front-end developer from a need to a branch of small commits a backend reviewer can read.",
+      "mode": "primary",
+      "prompt": "{file:./prompts/system.md}\n\n{file:./prompts/doctrine.md}\n\n{file:./prompts/mecha-suit.md}\n\n{file:./prompts/backend-coach.md}\n\n{file:./output-styles/extended-mind.md}\n\n{file:./prompts/back-of-the-napkin.md}"
+    }
+  },
+  "instructions": [
+    "~/.config/opencode/rules/*.md",
+    "~/.config/opencode/opencode-rules/*.md",
+    "~/.config/opencode/tools/docs/opencode.md"
+  ]
+}
