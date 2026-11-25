@@ -77,12 +77,12 @@ STAGE 2 ............ a new session
 
 ## Elements
 
-Each is walked with the user before it is built: added, removed or updated. Origin: `=` copied as is, `~` copied then localized (Claude tool names, `φ` rationale lines, dead references), `*` new.
+Each is walked before it is built: added, removed or updated. The user settles only what changes the harness's behaviour; the wording, the plain language and the localization are the agent's, done without the user's review. Origin: `=` copied as is, `~` copied then localized (Claude tool names, `φ` rationale lines, dead references), `*` new.
 
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
-| doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the four answer prompts; in their place, the two paragraphs below the table |
+| doctrine prompt | ~ | `prompts/doctrine.md` | |
 | answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: the probe to rework, with the full chain in the system position and on GPT (a blank Sonnet given the four alone follows them); the word "folded" leaks into answers as jargon; two ⚠ per drawing where one is asked |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
@@ -104,27 +104,14 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 | acceptance of the harness | * | spec §16 | to check: drawings use the project's domain, not the ticket shop of the whiteboard's examples |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
 
-The doctrine paragraph naming the four steps:
-
-> Every answer to the user is a pipeline of four steps. Each step takes what the step before returns.
->
-> 1. **Filter and group**, like a map: keep what the reader needs now, group the rest into clusters.
-> 2. **Represent visually**: draw all that can be seen. It reduces the extraneous cognitive load (Sweller).
-> 3. **Set the hierarchy**, of information and of the page: the point first, the big labels readable alone.
-> 4. **Write lean**: say what is left, in few and plain words.
-
-The doctrine paragraph on writing for an agent, a file or a brief. Only clutter matters there, not style:
-
-> Writing for an agent, in a file or a brief: do not clutter it. Clutter is the disease (Zinsser). Stop when there is nothing left to take away (Saint-Exupéry). Every line must fire (Chekhov's gun): the reader acts on it, or it goes. What is done is dead: the code holds it, the file does not. No file is a bureaucrat's record. No file is for keeping score.
-
 The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
 OpenCode wiring, as the base does it: primaries declared in `opencode.json` as chains of `{file:./prompts/…}`, built-in `build` and `plan` disabled; subagents as markdown in `agents/`; rules through `instructions` globs, reaching subagents too; verified facts in `~/.claude/opencode-agents.work.md`.
 
 ## Steps
 
-- [ ] Walk the elements, one per turn. ← next: plain language
-  - [ ] plain language: how the whole level design pulls GPT toward it, in every file. The form that works, from the draw prompt: short sentences, one idea per bullet, the attractors kept. The doctrine prompt is rewritten paragraph by paragraph in `prompts/doctrine.md`; next: "A remark is said for a reason".
+- [ ] Walk the elements. ← next: plain language
+  - [ ] plain language: the prompts in `prompts/` are rewritten; every file copied at the build gets the same form: short sentences, one idea per bullet, the attractors kept. Left: how the level design as a whole pulls GPT toward it.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
 
     | File | It is | It is not | Rule |
