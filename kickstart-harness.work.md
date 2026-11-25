@@ -81,7 +81,7 @@ Each is walked before it is built: added, removed or updated. The user settles o
 
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
-| prompts and wiring: system, doctrine, mecha-suit, autopilot, back-of-the-napkin, groveling-worm, Extended mind, `opencode.json` | = | `prompts/`, `output-styles/extended-mind.md`, `opencode.template.json` | copied as is; `opencode.json` adds the `backend-coach` primary, the default, its chain the mecha suit's with `prompts/backend-coach.md` after `mecha-suit.md` |
+| prompts and wiring: system, doctrine, mecha-suit, autopilot, back-of-the-napkin, Extended mind, `opencode.json` | = | `prompts/`, `output-styles/extended-mind.md`, `opencode.template.json` | copied as is, the Groveling Worm voice left out; `opencode.json` adds the `backend-coach` primary, the default, its chain the mecha suit's with `prompts/backend-coach.md` after `mecha-suit.md` |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | written in `prompts/backend-coach.md` |
 | rules: writing, session-design, subtraction, documents | = | `rules/` | the base moved the writing rule into Extended mind: check what is left |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | it says not to commission independent review |

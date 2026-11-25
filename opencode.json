@@ -14,9 +14,9 @@
       "prompt": "{file:./prompts/system.md}\n\n{file:./prompts/doctrine.md}\n\n{file:./prompts/mecha-suit.md}\n\n{file:./output-styles/extended-mind.md}\n\n{file:./prompts/back-of-the-napkin.md}"
     },
     "robot": {
-      "description": "Autonomous execution with the Groveling Worm voice.",
+      "description": "Autonomous execution.",
       "mode": "primary",
-      "prompt": "{file:./prompts/system.md}\n\n{file:./prompts/doctrine.md}\n\n{file:./prompts/autopilot.md}\n\n{file:./output-styles/extended-mind.md}\n\n{file:./prompts/back-of-the-napkin.md}\n\n{file:./prompts/groveling-worm.md}"
+      "prompt": "{file:./prompts/system.md}\n\n{file:./prompts/doctrine.md}\n\n{file:./prompts/autopilot.md}\n\n{file:./output-styles/extended-mind.md}\n\n{file:./prompts/back-of-the-napkin.md}"
     },
     "backend-coach": {
       "description": "Backend coach: takes a front-end developer from a need to a branch of small commits a backend reviewer can read.",
