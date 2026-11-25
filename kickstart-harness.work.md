@@ -83,7 +83,7 @@ Each is walked with the user before it is built: added, removed or updated. Orig
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
 | doctrine prompt | ~ | `prompts/doctrine.md` | "Cartographer" and "Whiteboard" leave for the four answer prompts; in their place, the two paragraphs below the table |
-| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: the probe to rework, with the full chain in the system position and on GPT (a blank Sonnet given the four alone follows them); the word "folded" leaks into answers as jargon; two ⚠ per drawing where one is asked; the draw prompt in plain words |
+| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: the probe to rework, with the full chain in the system position and on GPT (a blank Sonnet given the four alone follows them); the word "folded" leaks into answers as jargon; two ⚠ per drawing where one is asked |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
@@ -124,7 +124,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 ## Steps
 
 - [ ] Walk the elements, one per turn. ← next: plain language
-  - [ ] plain language: how the whole level design pulls GPT toward it, in every file. The draw prompt is still in the dense register.
+  - [ ] plain language: how the whole level design pulls GPT toward it, in every file. The form that works, from the draw prompt: short sentences, one idea per bullet, the attractors kept.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
 
     | File | It is | It is not | Rule |
