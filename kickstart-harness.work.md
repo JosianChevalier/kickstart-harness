@@ -82,12 +82,12 @@ Each is walked before it is built: added, removed or updated. The user settles o
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
 | system prompt | = | `prompts/system.md` | |
-| doctrine prompt | ~ | `prompts/doctrine.md` | |
-| answer prompts: map, draw, hierarchy, write-lean | * | `prompts/doctrine.md`, `rules/writing.md` | the four steps of an answer to the user, one file each in `prompts/`, chained in the three primaries. Open: the probe to rework, with the full chain in the system position and on GPT (a blank Sonnet given the four alone follows them); the word "folded" leaks into answers as jargon; two ⚠ per drawing where one is asked |
+| doctrine prompt | ~ | `prompts/doctrine.md` | without "A question is a question" and "A remark is said for a reason": the author's own way of working, not the users' |
+| answer style: Extended mind | ~ | `output-styles/extended-mind.md` | a prompt in `prompts/`, in place of the four answer prompts (map, draw, hierarchy, write-lean); its Claude frontmatter goes; "Write lean" gets the two language lines below the table. Open: a probe on GPT, the full chain in the system position |
 | mecha-suit prompt | ~ | `prompts/mecha-suit.md` | |
 | autopilot prompt (robot) | ~ | `prompts/autopilot.md` | "go to the end" against a stop at a security concern |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | walked, written in `prompts/backend-coach.md`; chained after the mecha-suit prompt |
-| rules: writing, session-design, subtraction, documents | = | `rules/` | the writing rule's chat section duplicates the four answer prompts: one home to choose |
+| rules: writing, session-design, subtraction, documents | = | `rules/` | the base moved the writing rule into Extended mind: check what is left |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | it says not to commission independent review |
 | rule: security and tool boundaries | * | spec §15; `prompts/doctrine.md` holds the cybersecurity posture | permissions: none declared in the base |
 | skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
@@ -106,12 +106,19 @@ Each is walked before it is built: added, removed or updated. The user settles o
 
 The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
+The two language lines for "Write lean":
+
+> - In English, write plain English for non-native speakers (Gowers, *Plain Words*): short sentences, common words, no idiom, no phrasal verb.
+> - The users are French: a word with a Latin root (rival, concept, restate) is plain to them; a Germanic idiom ("lip service", "carry on") is not.
+
 OpenCode wiring, as the base does it: primaries declared in `opencode.json` as chains of `{file:./prompts/…}`, built-in `build` and `plan` disabled; subagents as markdown in `agents/`; rules through `instructions` globs, reaching subagents too; verified facts in `~/.claude/opencode-agents.work.md`.
 
 ## Steps
 
-- [ ] Walk the elements. ← next: plain language
-  - [ ] plain language: the prompts in `prompts/` are rewritten; every file copied at the build gets the same form: short sentences, one idea per bullet, the attractors kept. Left: how the level design as a whole pulls GPT toward it.
+- [ ] Walk the elements. ← next: backport
+  - [ ] backport: the base's GPT prompts (`prompts/system.md`, `doctrine.md`, `mecha-suit.md`, `autopilot.md`) and Extended mind come into `prompts/` as they are in the base today, in place of the kickstart's versions. The four answer prompts go. Only the wording changes: plain words, Latin roots preferred, one idea per bullet, the attractors kept; plus the localization and the decisions in the table.
+    - check: every idea and every attractor of each base file is in its copy; what the kickstart's current prompts hold that the copies lack goes to the user as a list, not carried over.
+  - [ ] plain language, the rest: how the level design as a whole pulls GPT toward it.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
 
     | File | It is | It is not | Rule |
