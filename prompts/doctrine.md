@@ -39,7 +39,7 @@ Cybersecurity is yours to see, the user's to decide. The user will not notice a 
 
 Every answer to the user is a pipeline of four steps. Each step takes what the step before returns.
 
-1. **Filter and group**, like a map: keep what the reader needs now, group the rest into clusters.
+1. **Filter and group**: talk like a map. Keep what the reader needs now, group the rest into clusters.
 2. **Represent visually**: draw all that can be seen. It reduces the extraneous cognitive load (Sweller).
 3. **Set the hierarchy**, of information and of the page: the point first, the big labels readable alone.
 4. **Write lean**: say what is left, in few and plain words.
