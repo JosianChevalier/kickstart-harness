@@ -98,7 +98,7 @@ Each is walked before it is built: added, removed or updated. The user settles o
 | skill: kaizen | ~ | `skills/kaizen` | copied, the philosophy layer and the transcript analyzer cut. The agent gathers the evidence itself |
 | skill: ascii | * | a third in `rules/writing.md`; spec §17 | drafted in `skills/ascii/`, standalone, as subagents do not load the napkin prompt; examples in a refunds domain; the same marks in every figure (`[x] [ ] [?]`, `<-- YOU ARE HERE`, `⚠`) |
 | agents: plan reviewer, stage reviewer | * | checklist in `write-plan` phase 5; spec §10 | drafted in `agents/`, both read-only, neither runs tests. The plan reviewer checks order and slicing only. The stage reviewer runs one gate: at every stage end, one subagent per gate, each bringing its issues back to the main session, before the walkthrough |
-| acceptance of the harness | * | spec §16 | to check: how an agent draws; drawings use the project's domain, not the ticket shop of the whiteboard's examples |
+| acceptance of the harness | * | spec §16 | to check: how an agent draws; whether the notebook, work file, plan and study stay short under GPT; drawings use the project's domain, not the ticket shop of the whiteboard's examples |
 | `AGENTS.md` | * | | the harness cannot run tests: the user runs them, the agent asks which ones |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | copied, checked running |
 
@@ -109,18 +109,9 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, step by step, in table order. ← next: lean files
+- [ ] Walk the elements, step by step, in table order. ← next: testing practice
   - Each copied element: the language simplified only where it is too verbose.
-  - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
-
-    | File | It is | It is not | Rule |
-    |---|---|---|---|
-    | notebook | your backlog, your drafts | your secret diary | do not bloat it; an item leaves as soon as it is treated |
-    | work file | what the conversation crystallized | a bureaucrat's record | nothing is written for the record |
-    | plan | the steps to come | a conspiracy board (the Pepe Silvia meme); keeping score | a done step is one line; what matters for later lives only in the step it concerns, and leaves with it |
-    | study | the ruling, not the trial: the conclusion and its consequence | keeping score; taken down in evidence; the file kept on someone | only what has an impact stays (Chekhov's gun) |
-
   - [ ] testing practice
-  - [ ] security gate, acceptance
+  - [ ] gates, acceptance
 - [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
 - [ ] Send the repository to its users.

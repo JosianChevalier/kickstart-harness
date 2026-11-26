@@ -6,7 +6,7 @@ Whatever outlives the turn, code included. Terse, plain, short.
 
 State goes in the shortest-lived store that outlives it: the conversation a turn, the notebook the session, the work file the work, the repo what the work leaves behind. Uncommitted is still conversation.
 
-- The notebook holds the session, a backlog, not a secret diary: steps left, concerns, parked ideas. `grab-notebook` prints its path, creating it on the first call. Nothing outside the session names it.
+- The notebook holds the session, a backlog, not a secret diary: steps left, concerns, parked ideas. An item leaves it as soon as it is handled. `grab-notebook` prints its path, creating it on the first call. Nothing outside the session names it.
 - What crosses between sessions belongs to the `ongoing-work` and `handover` skills.
 
 ## Bureaucracy
