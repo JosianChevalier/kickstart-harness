@@ -1,5 +1,5 @@
 ---
-ongoing_work_file: "The kickstart harness for OpenCode, built from the base harness: empty when every element is walked with the user, built, and the repository is sent to its users."
+ongoing_work_file: "The kickstart harness for OpenCode, built from the base harness: empty when the gate skills are written and every copied element is in plain English."
 rank: 1
 ---
 
@@ -107,6 +107,5 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the gates, in their own session: the full list, then a skill each.
-- [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; a check in a clean OpenCode install.
-- [ ] Send the repository to its users.
+- [ ] Gates, in their own session: the full list, then a skill each.
+- [ ] Simplify the wording of every element copied from `~/.claude`: plain, basic, terse English (see The build).
