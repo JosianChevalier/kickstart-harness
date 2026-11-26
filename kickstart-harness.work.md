@@ -87,7 +87,7 @@ Each is walked before it is built: added, removed or updated. The user settles o
 | session design | ~ | `rules/session-design.md` | merged into `prompts/mecha-suit.md` with its "one beat per turn" paragraph, no rule file: the robot does not get it |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | copied; the session trusts the report and does not check the work again, "independent review" cut so GPT does not skip the cycle's reviewers |
 | skill: security gate | * | spec §15; `~/.claude/philosophy/kairos-gates.md` | a skill, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. One skill per gate, the coach's concerns among them; most gates fire at the same moment; a gate runs in a subagent most of the time, so the agent that wrote the work does not review it. Open: the list of gates and where each fires |
-| skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
+| skill: study | ~ | `skills/study-making` | walked. Copied, the aggregate-identification dispatch left out. Prototyping is left out: it is a practice used while coding, to be brought in later with an explanation for the users |
 | skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | it forbids recording unresolved questions |
 | skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | reworked on the commit cycle above. It settles the mecha suit's "nothing enters the code that a navigator did not say" against commits made in a row below the author's level |
 | skill: commit | ~ | `old-claude/skills/atomic-commit`, `old-claude/agents/committer.md` | walked. Kept as written: what counts as one change and what does not, the red flags, the subject rules, stage by name, never amend, never push. Left out: the committer sub-agent with its wrapper script and hook, the triggers forcing TDD and atomic refactoring, "one refactoring move" as a unit, gitmoji. The gate (validated, then it lands) belongs to the stage, with the coach |
@@ -108,7 +108,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, step by step, in table order. ← next: skill: study
+- [ ] Walk the elements, step by step, in table order. ← next: skill: plan
   - Each copied element: the language simplified only where it is too verbose.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
 
