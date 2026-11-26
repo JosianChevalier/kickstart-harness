@@ -85,7 +85,7 @@ Each is walked before it is built: added, removed or updated. The user settles o
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | written in `prompts/backend-coach.md` |
 | rules: writing, session-design, subtraction, documents | = | `rules/` | the base moved the writing rule into Extended mind: check what is left |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | it says not to commission independent review |
-| rule: security and tool boundaries | * | spec §15; `prompts/doctrine.md` holds the cybersecurity posture | permissions: none declared in the base |
+| skill: security gate | * | spec §15; `~/.claude/philosophy/kairos-gates.md` | a skill, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. Open: which gates the cycle carries |
 | skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
 | skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | it forbids recording unresolved questions |
 | skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | reworked on the commit cycle above. It settles the mecha suit's "nothing enters the code that a navigator did not say" against commits made in a row below the author's level |
