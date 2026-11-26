@@ -83,10 +83,10 @@ Each is walked before it is built: added, removed or updated. The user settles o
 |---|---|---|---|
 | prompts and wiring: system, doctrine, mecha-suit, autopilot, back-of-the-napkin, Extended mind, `opencode.json` | = | `prompts/`, `output-styles/extended-mind.md`, `opencode.template.json` | copied as is, the Groveling Worm voice left out, the doctrine without "A question is a question" and "A remark is said for a reason"; `opencode.json` adds the `backend-coach` primary, the default, its chain the mecha suit's with `prompts/backend-coach.md` after `mecha-suit.md` |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | written in `prompts/backend-coach.md` |
-| rule: documents | ~ | `rules/documents.md` | copied, the store ladder moved in from the doctrine. "for an agent, the field's own term" kept. Open: the cut of "a figure of the whole on top" (in Extended mind); "an open decision keeps its options" against the plan skill |
+| rule: documents | ~ | `rules/documents.md` | copied, the store ladder moved in from the doctrine. kept whole otherwise: Extended mind's figure of the whole is for answers, not documents. Open: "an open decision keeps its options" against the plan skill |
 | session design | ~ | `rules/session-design.md` | merged into `prompts/mecha-suit.md` with its "one beat per turn" paragraph, no rule file: the robot does not get it |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | copied; the session trusts the report and does not check the work again, "independent review" cut so GPT does not skip the cycle's reviewers |
-| skill: security gate | * | spec §15; `~/.claude/philosophy/kairos-gates.md` | a skill, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. Open: which gates the cycle carries |
+| skill: security gate | * | spec §15; `~/.claude/philosophy/kairos-gates.md` | a skill, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. One skill per gate, the coach's concerns among them; most gates fire at the same moment; a gate runs in a subagent most of the time, so the agent that wrote the work does not review it. Open: the list of gates and where each fires |
 | skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
 | skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | it forbids recording unresolved questions |
 | skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | reworked on the commit cycle above. It settles the mecha suit's "nothing enters the code that a navigator did not say" against commits made in a row below the author's level |
@@ -108,7 +108,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, step by step, in table order from the rules. ← next: rules
+- [ ] Walk the elements, step by step, in table order. ← next: skill: study
   - Each copied element: the language simplified only where it is too verbose.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
 
