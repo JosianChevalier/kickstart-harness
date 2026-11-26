@@ -1,6 +1,6 @@
 ---
 name: gate-design
-description: "design gate", a review of design, architecture, dependency inversion or layers of abstraction on commits. The design checks of a stage review, used by the gate-design subagent.
+description: The design, architecture, dependency inversion and abstraction-layer checks of a stage review, loaded by the gate-design subagent.
 ---
 
 # Gate: design

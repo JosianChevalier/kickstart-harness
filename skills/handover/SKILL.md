@@ -1,6 +1,6 @@
 ---
 name: handover
-description: Use when the user asks to create/write/generate a handover prompt for a new session. Do NOT use for reading incoming handovers, summaries, reports, or documentation requests.
+description: 'Trigger word: "handover" — "write a handover", "handover for the next session". Not when reading one.'
 ---
 
 # Handover

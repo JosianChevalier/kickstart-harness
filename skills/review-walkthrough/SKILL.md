@@ -1,6 +1,6 @@
 ---
 name: review-walkthrough
-description: Trigger — "review", "walkthrough", "walk me through", "what moved", "what should I compare"; also proposed at the end of each stage. NOT an exhaustive review, NOT a study.
+description: 'Trigger word: "walkthrough" — "walk me through", "what moved", "what should I compare". The author guides the user through a change already made.'
 ---
 
 # Review walkthrough

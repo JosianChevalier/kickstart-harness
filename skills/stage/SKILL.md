@@ -1,6 +1,6 @@
 ---
 name: stage
-description: Working on a stage — "proceed with", "continue", "next stage", "stage N", or a need ready to implement. With a plan in docs/plans/ or without one, for a need simple enough to need no plan.
+description: 'Trigger: "next stage", "stage N", "proceed with <stage>". Implementing a stage of a plan, or a need simple enough to need none.'
 ---
 
 # Stage

@@ -1,6 +1,6 @@
 ---
 name: gate-api
-description: "API gate", a review of REST and API design on commits. The API checks of a stage review, used by the gate-api subagent.
+description: The REST and API checks of a stage review, loaded by the gate-api subagent.
 ---
 
 # Gate: API

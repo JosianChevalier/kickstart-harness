@@ -1,6 +1,6 @@
 ---
 name: gate-security
-description: "security gate", a security review of commits. The security checks of a stage review, used by the gate-security subagent.
+description: The security checks of a stage review, loaded by the gate-security subagent.
 ---
 
 # Gate: security

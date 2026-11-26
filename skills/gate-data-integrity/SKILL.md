@@ -1,6 +1,6 @@
 ---
 name: gate-data-integrity
-description: "data integrity gate", a review of race conditions, atomicity or persistence on commits. The data integrity checks of a stage review, used by the gate-data-integrity subagent.
+description: The race condition, atomicity and persistence checks of a stage review, loaded by the gate-data-integrity subagent.
 ---
 
 # Gate: data integrity
