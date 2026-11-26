@@ -109,7 +109,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, step by step, in table order. ← next: settle the open decisions (12) to (22), then fix the drafts: stage gates at the stage end, the stage reviewer runs no tests
+- [ ] Walk the elements, step by step, in table order. ← next: settle the open decisions (12) to (23), defaults written in each row, then fix the drafts: stage gates at the stage end, the stage reviewer runs no tests
   - [ ] the copied prompts against the coach chain. Open, defaults: (21) `mecha-suit.md` "A turn that changed a file closes with its commit" lets GPT commit before validation: `backend-coach.md` adds "a commit lands only once the user validates it", later in the chain; (22) `doctrine.md` "the message saying what was done" against the model: "the subject says what, the body why". Also: the `φ` Rationale lines left in `prompts/` and `rules/documents.md`
   - Each copied element: the language simplified only where it is too verbose.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
