@@ -99,7 +99,6 @@ The way you write a change:
 
 ## The commit cycle
 
-Every commit follows the `commit` skill: what it holds, its message, how it is made.
 
 A change at the author's level, one at a time:
 
