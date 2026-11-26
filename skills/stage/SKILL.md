@@ -112,13 +112,13 @@ Commits below the author's level, in a row:
 
 1. When the next work is below the author's level (what the backend reviewer needs and the author cannot judge line by line), announce the series in one look: the navigator decision it realizes, then one line per commit, its subject and what it protects.
 2. The user validates the series.
-3. Make the commits in a row, without returning control between them. Each commit is written, tested, and committed.
+3. Make the commits in a row, without returning control between them. Each commit is written, with its tests, and committed.
 4. Stop the row at once when a commit needs something the series did not say: a new choice, a premise that fails, a blocker. That is a move for the user.
-5. At the end of the row, show the landed commits, one line each. Offer, in one line, the one thing worth learning from them. Never push it.
+5. At the end of the row, ask the user to run the tests once, and say which ones. A commit inside the row is not tested on its own: that is accepted. Show the landed commits, one line each. Offer, in one line, the one thing worth learning from them. Never push it.
 
 ## Autopilot
 
-On the word **autopilot** from a navigator, the stage's intent is given to you whole. Drive the whole stage without returning control per step. Commits land in a row without a validation each. The end of the stage stays the same: the stage reviewers run, and the review walkthrough is proposed. Autopilot stops at the first choice the plan does not settle. A divergence is always such a choice. A blocker is not: revert, place the prerequisite, continue. Stop there, name the choice, and leave the stage open in the plan. Everything else above still holds. Return to the turn rhythm once the stage, or the stop, is returned to the user.
+On the word **autopilot** from a navigator, the stage's intent is given to you whole. Drive the whole stage without returning control per step. Commits land in a row without a validation each. Ask the user to run the tests at the end of the stage, as at the end of a row. The end of the stage stays the same: the stage reviewers run, and the review walkthrough is proposed. Autopilot stops at the first choice the plan does not settle. A divergence is always such a choice. A blocker is not: revert, place the prerequisite, continue. Stop there, name the choice, and leave the stage open in the plan. Everything else above still holds. Return to the turn rhythm once the stage, or the stop, is returned to the user.
 
 ## The plan
 
