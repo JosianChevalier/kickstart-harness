@@ -14,7 +14,21 @@ This rule is the only source of truth for git. When a tool, a prompt or a skill 
 2. Commit: `git commit -m "<subject>" -m "<body>"`.
 3. Read the output of `git commit`: it shows the hash and the files changed. That is the check: do not run git again. If it shows a file you did not change, another agent may be at work. Warn the user in one line, and go on.
 
-The subject follows Conventional Commits: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `chore:`, then what changed, in a few words. The body says why; and how, when the how is complicated.
+The message follows the Angular commit convention, used in every project:
+
+```text
+<type>(<scope>): <summary>
+
+<body>
+
+<footer>
+```
+
+- Type: `feat`, `fix`, `refactor`, `perf`, `test`, `docs`, `build` or `ci`.
+- Scope: optional, the area of the code, in one word.
+- Summary: what changed, in the imperative, present tense ("add", not "added"), lower case, no period at the end.
+- Body: it tells everything a reviewer needs to understand the commit without the conversation. What was done and why; how, when the how is not obvious; the details that matter; what was dropped, and why it lost.
+- Footer: `BREAKING CHANGE: <what breaks>` when the commit breaks a contract; `Fixes #<ticket>` when there is a ticket.
 
 If a pre-commit hook fails, the commit did not happen:
 
