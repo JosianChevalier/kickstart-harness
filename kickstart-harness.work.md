@@ -97,7 +97,6 @@ Each is walked before it is built: added, removed or updated. The user settles o
 | skill: kaizen | ~ | `skills/kaizen` | copied, the philosophy layer and the transcript analyzer cut. The agent gathers the evidence itself |
 | skill: ascii | * | a third in `rules/writing.md`; spec §17 | drafted in `skills/ascii/`, standalone, as subagents do not load the napkin prompt; examples in a refunds domain; the same marks in every figure (`[x] [ ] [?]`, `<-- YOU ARE HERE`, `⚠`) |
 | agents: plan reviewer, stage reviewer | * | checklist in `write-plan` phase 5; spec §10 | drafted in `agents/`, both read-only, neither runs tests. The plan reviewer checks order and slicing only. The stage reviewer runs one gate: at every stage end, one subagent per gate, each bringing its issues back to the main session, before the walkthrough |
-| acceptance of the harness | * | spec §16 | to check: how an agent draws; whether the notebook, work file, plan and study stay short under GPT; drawings use the project's domain, not the ticket shop of the whiteboard's examples |
 | `AGENTS.md` | * | | the harness cannot run tests: the user runs them, the agent asks which ones |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | copied, checked running |
 
@@ -108,7 +107,6 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, step by step, in table order. ← next: gates, acceptance
-  - Each copied element: the language simplified only where it is too verbose.
-- [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
+- [ ] Walk the gates, in their own session: the full list, then a skill each.
+- [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; a check in a clean OpenCode install.
 - [ ] Send the repository to its users.
