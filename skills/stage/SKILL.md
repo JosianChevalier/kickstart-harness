@@ -135,7 +135,13 @@ Distill, never append a transcript: the mechanism, why it changes the work to co
 
 When the last change of the north star has landed:
 
-1. The gates. A gate is a subagent whose name starts with `gate-`; each one reviews the stage through one concern. Send every gate with `task`, all at once, each with the stage's north star, the base commit from the notebook, and the commits since it. Each brings back the issues it notices. Give the user your synthesis of their reports, not the raw reports. An issue the user wants fixed is a new commit, in the normal cycle; never amend. If a gate cannot run, say that it is not met. Your own review does not replace it.
+1. The gates. You MUST ALWAYS start these four subagents with `task`, all at once, at the end of every stage, autopilot included:
+   - `gate-data-integrity`
+   - `gate-design`
+   - `gate-security`
+   - `gate-api`
+
+   Each gets the stage's north star, the base commit from the notebook, and the commits since it. Each reviews the stage through one concern and brings back the issues it notices. Give the user your synthesis of their reports, not the raw reports. An issue the user wants fixed is a new commit, in the normal cycle; never amend. If a gate cannot run, say that it is not met. Your own review does not replace it.
 2. The notebook. Every security flaw written there is handled before the session ends.
 3. The review walkthrough, proposed in one line. If the user accepts, run the `review-walkthrough` skill on the stage's commits, the gates' issues opening it, among its doubts.
 4. The plan, written as above.
