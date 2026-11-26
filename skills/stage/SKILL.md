@@ -49,7 +49,6 @@ Read the plan, or the need and its study. Then, in chat:
 Before the first change:
 
 - Check the branch. On the default branch, propose a branch named for the need, and create it when the user agrees.
-- Check the working tree. Changes that are not yours: say so in one line. Never stage them, never discard them.
 - Write the stage's base commit (`git rev-parse HEAD`) in the notebook (the `run` tool with `grab-notebook` prints its path). The gates and the review walkthrough start from it.
 
 Then the first move (below). The turn ends.
