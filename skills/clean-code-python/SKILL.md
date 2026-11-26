@@ -1,6 +1,6 @@
 ---
 name: clean-code-python
-description: Writing or reviewing Python code. Clean code: functional flows, idiomatic implementation, behaviour packaged with its data, states as types.
+description: Always load when writing or reviewing Python code.
 ---
 
 # Clean code (Python)
