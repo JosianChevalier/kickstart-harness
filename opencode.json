@@ -22,6 +22,38 @@
       "description": "Backend coach: takes a front-end developer from a need to a branch of small commits a backend reviewer can read.",
       "mode": "primary",
       "prompt": "{file:./prompts/system.md}\n\n{file:./prompts/doctrine.md}\n\n{file:./prompts/mecha-suit.md}\n\n{file:./prompts/backend-coach.md}\n\n{file:./output-styles/extended-mind.md}\n\n{file:./prompts/back-of-the-napkin.md}"
+    },
+    "gate-data-integrity": {
+      "description": "Stage review gate: race conditions, atomicity, persistence. Reviews the commits of a finished stage; changes nothing.",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny"
+      },
+      "prompt": "{file:./prompts/stage-reviewer.md}\n\nYour gate: `gate-data-integrity`. Load the `gate-data-integrity` skill now, before anything else."
+    },
+    "gate-design": {
+      "description": "Stage review gate: general design, architecture patterns, dependency inversion, layers of abstraction. Reviews the commits of a finished stage; changes nothing.",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny"
+      },
+      "prompt": "{file:./prompts/stage-reviewer.md}\n\nYour gate: `gate-design`. Load the `gate-design` skill now, before anything else."
+    },
+    "gate-security": {
+      "description": "Stage review gate: security. Reviews the commits of a finished stage; changes nothing.",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny"
+      },
+      "prompt": "{file:./prompts/stage-reviewer.md}\n\nYour gate: `gate-security`. Load the `gate-security` skill now, before anything else."
+    },
+    "gate-api": {
+      "description": "Stage review gate: REST and API design. Reviews the commits of a finished stage; changes nothing.",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny"
+      },
+      "prompt": "{file:./prompts/stage-reviewer.md}\n\nYour gate: `gate-api`. Load the `gate-api` skill now, before anything else."
     }
   },
   "instructions": [

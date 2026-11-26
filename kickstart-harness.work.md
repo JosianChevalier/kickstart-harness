@@ -1,5 +1,5 @@
 ---
-ongoing_work_file: "The kickstart harness for OpenCode, built from the base harness: empty when the gate skills are written and every copied element is in plain English."
+ongoing_work_file: "The kickstart harness for OpenCode, built from the base harness: empty when the gate skills are written."
 rank: 1
 ---
 
@@ -72,11 +72,11 @@ STAGE 2 ............ a new session
 - The philosophy layer stays out; the doctrine / know-how split is kept in each element.
 - Know-how is not cut, and a little is added: OpenCode with GPT models needs it.
 - No TDD, no coverage: practices brought in later.
-- Everything that ends up in the harness, every prompt, rule, skill and agent, copied or new, is written in plain, basic, terse English: short sentences, common words, no idiom. The users are French: a word with a Latin root (rival, concept, restate) is plain to them; a phrasal verb or a Germanic idiom is not. Not every user is fluent in English, and GPT writes in the register of its context, so the instructions are the example. Attractors stay precise, always: the field's terms and its names (cognitive load, race condition, dependency inversion, Tufte) are never simplified.
+- Every new element, prompt, rule, skill or agent, is written in plain, basic, terse English: short sentences, common words, no idiom. The users are French: a word with a Latin root (rival, concept, restate) is plain to them; a phrasal verb or a Germanic idiom is not. Not every user is fluent in English, and GPT writes in the register of its context, so the instructions are the example. Attractors stay precise, always: the field's terms and its names (cognitive load, race condition, dependency inversion, Tufte) are never simplified.
 
 ## Elements
 
-Each is walked before it is built: added, removed or updated. The user settles only what changes the harness's behaviour; the wording, the plain language and the localization are the agent's, done without the user's review. Origin: `=` copied as is, `~` copied then localized (Claude tool names, `φ` rationale lines, dead references), `*` new.
+Each is walked before it is built: added, removed or updated. The user settles only what changes the harness's behaviour; the wording and the localization are the agent's, done without the user's review. Origin: `=` copied as is, `~` copied then localized (Claude tool names, `φ` rationale lines, dead references), `*` new.
 
 | Element | Origin | Source in `~/.claude` | To settle |
 |---|---|---|---|
@@ -85,18 +85,18 @@ Each is walked before it is built: added, removed or updated. The user settles o
 | rule: documents | ~ | `rules/documents.md` | copied, the store ladder moved in from the doctrine. kept whole otherwise: Extended mind's figure of the whole is for answers, not documents |
 | session design | ~ | `rules/session-design.md` | merged into `prompts/mecha-suit.md` with its "one beat per turn" paragraph, no rule file: the robot does not get it |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | copied; the session trusts the report and does not check the work again, "independent review" cut so GPT does not skip the cycle's reviewers |
-| skills: gates | * | spec §15; `~/.claude/philosophy/kairos-gates.md`; the checklist of the first `stage-reviewer` draft | a skill each, named `gate-<concern>`, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. The gates are the stage reviewers: each runs once, in a `stage-reviewer` subagent, on the stage's commits at its end, so the agent that wrote the work does not review it; a flaw is fixed before the stage closes. A design review may open each stage, on the approach before the code. Not drafted. Candidates: race conditions, atomicity, persistence; design (architecture patterns, dependency inversion, layers of abstraction); security; REST and API design; the cut (each commit working against its parent, nothing used before it arrives, no unexplained change, test quality, regressions, releasability, behaviour against the north star). Open: the full list |
+| gates | * | spec §15; `~/.claude/philosophy/kairos-gates.md`; the checklist of the first `stage-reviewer` draft | walked, drafted. A kairos gate, a step of the loop where the practice is applied at the moment it applies; at every stage end, all at once, on the stage's commits, so the agent that wrote the work does not review it; a flaw is fixed before the stage closes. Each gate is a subagent `gate-<concern>` declared in `opencode.json`, its prompt `prompts/stage-reviewer.md` chained, and a skill of the same name that it loads, not inlined: the user can run a gate too, the skill then sending its subagent. A skill, not a rule: the corporate harness holds the security rules. The application runs offline: the security gate checks no authentication, no authorization, no trust in the client. Four, the coach's concerns: `data-integrity` (race conditions, atomicity, persistence), `design`, `security`, `api`. The stage sends every agent named `gate-*`. Open: a design review opening each stage, on the approach before the code |
 | skill: study | ~ | `skills/study-making` | walked. Copied, the aggregate-identification dispatch left out. Prototyping is left out: it is a practice used while coding, to be brought in later with an explanation for the users |
 | skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | walked. The plan records no unresolved question: GPT writes down everything without asking. Every leaf stage is a session (1.1, 1.2); a group is not. A stage needs only its north star, on top, shown to the user; the rest is what helps the agent. A done stage is one line where it stands |
 | skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | drafted in `skills/stage/`. The navigator speaks at their level, the agent cuts the commits: a series below that level is shown in one look, validated once, landed in a row, and stops at the first commit bringing a new behaviour, domain word or design choice. Autopilot is kept, its commits landing unvalidated; the stage end stays the same. A small blocker is the next commit, a large one a new stage before. A stage may run without a plan, the need as north star, a branch proposed on the default branch. |
 | rule: git | * | Claude Code's git lines; `old-claude/skills/atomic-commit` | written in `rules/git.md`, no commit skill: the only source of truth for git, against GPT's reflex and OpenCode's shipped prompt that check the tree again and again. The agent is the only one in the repository; git is for committing and reading history, never for checking. When to commit stays with the primaries and the stage. The convention is Angular's, written in the rule: nothing is asked |
-| skill: review walkthrough | ~ | `old-claude/skills/review-walkthrough` | drafted in `skills/review-walkthrough/`; proposed at every stage end, never required; the stage reviewers' issues open it |
+| skill: review walkthrough | ~ | `old-claude/skills/review-walkthrough` | drafted in `skills/review-walkthrough/`; proposed at every stage end, never required; the gates' issues open it |
 | skill: testing | ~ | `old-claude/skills/test`, `in-memory-adapters`, `old-claude/rules/test-types.md`, `no-mockito.md` | walked, drafted in `skills/testing/`, Python, pytest, in-memory adapters, no mocks of your own code. The tested cases are co-designed: the agent proposes them as examples, asks only about the open ones; the how is left to emerge with the users. The suite before a commit is the users' pre-commit hooks. No "seen failing" step: no TDD for now. The doctrine applies to new tests; an existing test is never rewritten in passing, its assertions follow a changed behaviour, a rewrite may be suggested in one line. The agent never runs tests, nor the type checker once the project has one: it asks the user (`AGENTS.md`). A new test dependency is the user's call |
 | skill: clean code, Python | = | `skills/clean-code-python` | copied |
 | skills: ongoing-work, handover | = | `skills/` | copied; the breadcrumb example uses a refunds domain, "CLAUDE.md" is "AGENTS.md" |
 | skill: kaizen | ~ | `skills/kaizen` | copied, the philosophy layer and the transcript analyzer cut. The agent gathers the evidence itself |
 | skill: ascii | * | a third in `rules/writing.md`; spec §17 | drafted in `skills/ascii/`, standalone, as subagents do not load the napkin prompt; examples in a refunds domain; the same marks in every figure (`[x] [ ] [?]`, `<-- YOU ARE HERE`, `⚠`) |
-| agents: plan reviewer, stage reviewer | * | checklist in `write-plan` phase 5; spec §10 | drafted in `agents/`, both read-only, neither runs tests. The plan reviewer checks order and slicing only. The stage reviewer runs one gate: at every stage end, one subagent per gate, each bringing its issues back to the main session, before the walkthrough |
+| agents: plan reviewer, stage reviewer | * | checklist in `write-plan` phase 5; spec §10 | both read-only, neither runs tests. The plan reviewer, in `agents/`, checks order and slicing only. The stage reviewer is the prompt the gates share, `prompts/stage-reviewer.md`: one gate each, issues back to the main session, before the walkthrough |
 | `AGENTS.md` | * | | the harness cannot run tests: the user runs them, the agent asks which ones |
 | tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | copied, checked running |
 
@@ -107,5 +107,4 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Gates, in their own session: the full list, then a skill each.
-- [ ] Simplify the wording of every element copied from `~/.claude`: plain, basic, terse English (see The build).
+
