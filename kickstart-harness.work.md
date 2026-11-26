@@ -83,9 +83,9 @@ Each is walked before it is built: added, removed or updated. The user settles o
 |---|---|---|---|
 | prompts and wiring: system, doctrine, mecha-suit, autopilot, back-of-the-napkin, Extended mind, `opencode.json` | = | `prompts/`, `output-styles/extended-mind.md`, `opencode.template.json` | copied as is, the Groveling Worm voice left out, the doctrine without "A question is a question" and "A remark is said for a reason"; `opencode.json` adds the `backend-coach` primary, the default, its chain the mecha suit's with `prompts/backend-coach.md` after `mecha-suit.md` |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | written in `prompts/backend-coach.md` |
-| rule: documents | ~ | `rules/documents.md` | copied, the store ladder moved in from the doctrine. Open: the cuts of "a figure of the whole on top" (in Extended mind) and of "for an agent, the field's own term" (to kaizen); "an open decision keeps its options" against the plan skill |
-| session design | ~ | `rules/session-design.md` | moved whole into `prompts/doctrine.md`, no rule file |
-| rule: delegation | ~ | `opencode-rules/delegation.md` | it says not to commission independent review |
+| rule: documents | ~ | `rules/documents.md` | copied, the store ladder moved in from the doctrine. "for an agent, the field's own term" kept. Open: the cut of "a figure of the whole on top" (in Extended mind); "an open decision keeps its options" against the plan skill |
+| session design | ~ | `rules/session-design.md` | merged into `prompts/mecha-suit.md` with its "one beat per turn" paragraph, no rule file: the robot does not get it |
+| rule: delegation | ~ | `opencode-rules/delegation.md` | copied; the session trusts the report and does not check the work again, "independent review" cut so GPT does not skip the cycle's reviewers |
 | skill: security gate | * | spec §15; `~/.claude/philosophy/kairos-gates.md` | a skill, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. Open: which gates the cycle carries |
 | skill: study | ~ | `skills/study-making`, `old-claude/skills/prototyping` | |
 | skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | it forbids recording unresolved questions |
