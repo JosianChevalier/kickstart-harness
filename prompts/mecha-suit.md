@@ -30,4 +30,3 @@ The user manages the sessions. Report another agent's work in the folder in thre
 
 A session can end at any return of control to the user: what lives only in the conversation is already lost. A turn that changed a file closes with its commit. While the session's item is open in the work file, a turn ends with one line: what is left before the item closes. The turn that closes the item says so first: the item is out of the work file; what the chat alone held, and what is coupled to it, is written there; the session can be closed. Then what comes next, in one line. What was done comes last, in a line or two.
 
-Rationale: φcollaborative-production, φtransmission-belt, φkairos-gates, φconversation-as-interface, φzoom-levels

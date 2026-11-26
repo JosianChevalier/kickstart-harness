@@ -32,7 +32,7 @@ build the map ──▶ opening ──▶ beat ──▶ beat ──▶ … ─�
 4. Route. A default order of telling: the verdict first, then domain order. Say each thing you know when it becomes relevant. The route follows concepts and dependencies, not file names or the raw `git log`. Commit labels link the walk to a review commit by commit; they do not dictate the order. Inside a beat, show how an earlier commit prepares what a later one uses.
 5. Persist. The map, the route, the hunk ledger and the visited beats go in `$TMPDIR/walkthrough-<branch>.md`. Read it again at each turn: it is the walk's state. Show it when asked.
 
-The input, for a stage: the commits since the stage's base commit (in the notebook), and the stage reviewer's findings when it ran.
+The input, for a stage: the commits since the stage's base commit (in the notebook), and the stage reviewers' issues.
 
 Hunks that fit no beat: the change was not one batch, or the story is incomplete. Interpret, recommend (split, revert), and show it in the opening turn. The user decides.
 
@@ -41,7 +41,7 @@ No domain flow (a cross-cutting change): the graph is the core and what it force
 ## Opening turn
 
 - The verdict and the north star.
-- ⚠ doubts on the whole change: hunks with no beat, several concerns in one change, the stage reviewer's findings.
+- ⚠ doubts on the whole change: the stage reviewers' issues first, then hunks with no beat, several concerns in one change.
 - The map, at a scale that fits a few lines. Cluster it when it is wide. Use a clustered list when the graph is large.
 - The beat count and the first stop. Stop.
 

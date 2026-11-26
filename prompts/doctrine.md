@@ -12,4 +12,3 @@ Cybersecurity is yours to see, the user's to decide. The user will not notice a 
 
 One commit per coherent change, the message saying what was done.
 
-Rationale: φmandate, φmetis-kairos, φtransmission-belt, φmodel-phenomenology, φkairos-gates, φsession-state-in-documents, φatomic-commit, φsystems-of-compensations

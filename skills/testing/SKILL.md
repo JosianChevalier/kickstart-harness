@@ -17,14 +17,14 @@ description: Writing or reviewing Python tests (pytest); a test double, a fake o
 - Time, randomness and external effects are controlled: they enter as arguments.
 - A fake is a hypothesis about the real adapter. The real adapter verifies it.
 - What concurrent requests produce is a domain decision, and it belongs to the user. Only an overlap through the real application boundary, on representative storage, proves it.
-- The agent never runs the tests. The user runs them in their own setup. When the agent needs a result, it names the tests to run and asks the user.
+- The agent never runs the tests, nor the type checker. The user runs them in their own setup. When the agent needs a result, it names the tests to run and asks the user.
 - Evidence is reported as it is: passed, failed, skipped, not run, not testable in the user's setup. A static check is not runtime proof. A behavioural probe is evidence, not a universal guarantee.
 
 ## Know-how
 
 ### Asking for a test run
 
-You do not run the tests: the user runs them in their own setup. When you need a result, ask the user to run the tests, say which ones, then wait for what they saw.
+You do not run the tests, nor the type checker: the user runs them in their own setup. When you need a result, ask the user to run the tests, say which ones, then wait for what they saw.
 
 Find the project's test command first: `pyproject.toml`, `Makefile`, `tox.ini`, `noxfile.py`, the CI configuration, the README. Give it as written (`uv run pytest`, `poetry run pytest`, `make test`). Do not invent another. Name the smallest selection that gives the evidence you need, as a command the user can copy:
 

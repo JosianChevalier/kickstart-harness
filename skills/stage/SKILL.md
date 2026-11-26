@@ -10,7 +10,7 @@ description: Working on a stage — "proceed with", "continue", "next stage", "s
 - A stage is one session. A session is a suite of commits. A stage is potentially a full release; its north star says what it is about, and the north star is the part that matters most.
 - A stage is a mob session, strong style: the navigators (the users) decide, out loud; you drive. An idea reaches the code only after a navigator has said it. You are expert at the medium (editor, language, refactoring moves, tests, how a change is cut into commits) and you have no authority over the concept.
 - The plan is the map; the code is the terrain. A crew dropped in the jungle has one certainty: the terrain will not match the map. You are the crew's scanner and machete: you show what is there and cut where the navigators point. A workaround that makes the stage fit the terrain is the driver deciding a concept the map got wrong: it never reaches the code. The divergence goes up the belt; the mob redraws the map.
-- Every commit passes the gate: you make the commit candidate, the user validates it, it lands. Nothing lands without a validation that covers it.
+- Outside autopilot, every commit is validated: you make the commit candidate, the user validates it, it lands. Nothing lands without a validation that covers it.
 - Commits are cut for the reviewer, who knows backend. So several commits can be made in a row below the author's level, under one validation.
 - What a navigator says, and at which level. The navigator speaks at their level: the behaviour, the domain words, and each design choice you proposed and they accepted. Below their level lies the medium: how a decision is cut into commits, in which order, the test plumbing, the small refactor a commit needs to stay small. The medium is yours, as the editor is. So a commit below the author's level enters the code only as the realization of something a navigator said. A commit that brings a new behaviour, a new domain word or a new design choice is not below the author's level, whatever its size: it is a move for the user, made in the normal cycle.
 - The session ends at a seam: you say the session is done and name the next one. If the context grows too high first, the user closes the session by hand with a handover.
@@ -19,13 +19,13 @@ description: Working on a stage — "proceed with", "continue", "next stage", "s
 
 ```
 opening ──▶ move ──▶ move ──▶ … ──▶ end of stage
-north star,  one per turn:            stage reviewer
+north star,  one per turn:            stage reviewers, one per gate
 map, first   premise, question,       review walkthrough, proposed
 move         change, divergence,      plan updated
              blocker                  "this session is done, the next one is stage N+1"
 
 a change at the author's level:
-  candidate ──▶ gates ──▶ the user validates ──▶ it lands
+  candidate ──▶ the user validates ──▶ it lands
 
 commits below the author's level:
   series announced ──▶ the user validates ──▶ commit, commit, commit, in a row
@@ -50,7 +50,7 @@ Before the first change:
 
 - Check the branch. On the default branch, propose a branch named for the need, and create it when the user agrees.
 - Check the working tree. Changes that are not yours: say so in one line. Never stage them, never discard them.
-- Write the stage's base commit (`git rev-parse HEAD`) in the notebook (the `run` tool with `grab-notebook` prints its path). The stage reviewer and the review walkthrough start from it.
+- Write the stage's base commit (`git rev-parse HEAD`) in the notebook (the `run` tool with `grab-notebook` prints its path). The stage reviewers and the review walkthrough start from it.
 
 Then the first move (below). The turn ends.
 
@@ -103,23 +103,22 @@ Every commit follows the `commit` skill: what it holds, its message, how it is m
 
 A change at the author's level, one at a time:
 
-1. Make the change and its tests. Run the tests.
-2. Run the gates that fire at this moment. A gate finding comes first in what you show.
-3. Show the candidate: what it does at the author's level, the core hunk, the test that proves it, the commit message. Under the backend coach, this is its four steps: the request, the state and the failure path drawn; the choice and its consequence; the code and its test; the walk through the result.
-4. The user validates. Only an explicit yes validates. A question, a remark or a correction does not: answer it, adjust the candidate, show it again.
-5. It lands: commit at once, with no other step.
+1. Make the change and its tests. Ask the user to run the tests, and say which ones.
+2. Show the candidate: what it does at the author's level, the core hunk, the test that proves it, the commit message. Under the backend coach, this is its four steps: the request, the state and the failure path drawn; the choice and its consequence; the code and its test; the walk through the result.
+3. The user validates. Only an explicit yes validates. A question, a remark or a correction does not: answer it, adjust the candidate, show it again.
+4. It lands: commit at once, with no other step.
 
 Commits below the author's level, in a row:
 
 1. When the next work is below the author's level (what the backend reviewer needs and the author cannot judge line by line), announce the series in one look: the navigator decision it realizes, then one line per commit, its subject and what it protects.
 2. The user validates the series.
-3. Make the commits in a row, without returning control between them. Each commit is written, tested, passed through the gates that fire at this moment, and committed.
-4. Stop the row at once when a commit needs something the series did not say: a new choice, a premise that fails, a blocker, a gate finding. That is a move for the user.
+3. Make the commits in a row, without returning control between them. Each commit is written, tested, and committed.
+4. Stop the row at once when a commit needs something the series did not say: a new choice, a premise that fails, a blocker. That is a move for the user.
 5. At the end of the row, show the landed commits, one line each. Offer, in one line, the one thing worth learning from them. Never push it.
 
 ## Autopilot
 
-On the word **autopilot** from a navigator, the stage's intent is given to you whole. Drive the whole stage without returning control per step. Commits land in a row without a validation each: the gate moves to the end of the stage, where the review walkthrough is done, not only proposed. Autopilot stops at the first choice the plan does not settle. A divergence is always such a choice. A blocker is not: revert, place the prerequisite, continue. Stop there, name the choice, and leave the stage open in the plan. Everything else above still holds. Return to the turn rhythm once the stage, or the stop, is returned to the user.
+On the word **autopilot** from a navigator, the stage's intent is given to you whole. Drive the whole stage without returning control per step. Commits land in a row without a validation each. The end of the stage stays the same: the stage reviewers run, and the review walkthrough is proposed. Autopilot stops at the first choice the plan does not settle. A divergence is always such a choice. A blocker is not: revert, place the prerequisite, continue. Stop there, name the choice, and leave the stage open in the plan. Everything else above still holds. Return to the turn rhythm once the stage, or the stop, is returned to the user.
 
 ## The plan
 
@@ -138,9 +137,9 @@ Distill, never append a transcript: the mechanism, why it changes the work to co
 
 When the last change of the north star has landed:
 
-1. The stage reviewer. Send the `stage-reviewer` subagent with `task`: the stage's north star, the base commit from the notebook, the commits since it. Give the user your synthesis of its report, not the raw report. A finding the user wants fixed is a new commit, in the normal cycle; never amend. If the reviewer cannot run, say that the gate is not met. Your own review does not replace it.
+1. The stage reviewers. Each gate is a skill named `gate-<concern>`. For each gate, send one `stage-reviewer` subagent with `task`, all at once: the gate, the stage's north star, the base commit from the notebook, the commits since it. Each brings back the issues it notices. Give the user your synthesis of their reports, not the raw reports. An issue the user wants fixed is a new commit, in the normal cycle; never amend. If a reviewer cannot run, say that its gate is not met. Your own review does not replace it.
 2. The notebook. Every security flaw written there is handled before the session ends.
-3. The review walkthrough, proposed in one line. If the user accepts, run the `review-walkthrough` skill on the stage's commits, with the reviewer's findings among its doubts.
+3. The review walkthrough, proposed in one line. If the user accepts, run the `review-walkthrough` skill on the stage's commits, the reviewers' issues opening it, among its doubts.
 4. The plan, written as above.
 5. The seam. Say first that this session is done. Then name the next one in one line: "the next one is stage N+1: <its north star in one line>". Without a plan, or after the last stage: say the need is done. What was done comes last, in a line or two.
 

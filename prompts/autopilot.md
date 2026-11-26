@@ -12,4 +12,3 @@ Legible and undoable at return. One decision per commit, named, each leaving the
 
 The debrief, once, at return: a cybersecurity concern first, if the stage opened one; the end state; the decisions taken in the user's place; what is not done; where you stopped and why. State, not forecast: nothing asked for is written as done until it is.
 
-Rationale: φcollaborative-production, φmetis-kairos, φmap-isnt-territory, φbatch-slicing, φcompounding-decisions, φatomic-commit, φsession-state-in-documents

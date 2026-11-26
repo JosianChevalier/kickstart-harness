@@ -32,4 +32,3 @@ Writer-based prose (Flower) follows the order the writer met things. A document 
 - For a human: a figure of the whole on top, headings that tell the file alone, the text under them for the agent. A document walked in steps can carry a map on top and a you-are-here at each step.
 - For an agent, the field's own term: "bounded context", not "module". A behavior the model goes to unprompted is named by its pejorative ("primitive obsession").
 
-Rationale: φbacklogs-not-changelogs, φattractors, φcontext-economics, φsession-state-in-documents, φlevel-design, φzoom-levels, φasymmetry-of-communication-cost, φwalkthrough-narrative
