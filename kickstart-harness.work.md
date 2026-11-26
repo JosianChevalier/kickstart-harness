@@ -83,23 +83,24 @@ Each is walked before it is built: added, removed or updated. The user settles o
 |---|---|---|---|
 | prompts and wiring: system, doctrine, mecha-suit, autopilot, back-of-the-napkin, Extended mind, `opencode.json` | = | `prompts/`, `output-styles/extended-mind.md`, `opencode.template.json` | copied as is, the Groveling Worm voice left out, the doctrine without "A question is a question" and "A remark is said for a reason"; `opencode.json` adds the `backend-coach` primary, the default, its chain the mecha suit's with `prompts/backend-coach.md` after `mecha-suit.md` |
 | backend coach prompt | * | `skills/strategic-design`, spec §12 | written in `prompts/backend-coach.md` |
-| rule: documents | ~ | `rules/documents.md` | copied, the store ladder moved in from the doctrine. kept whole otherwise: Extended mind's figure of the whole is for answers, not documents. Open: "an open decision keeps its options" against the plan skill |
+| rule: documents | ~ | `rules/documents.md` | copied, the store ladder moved in from the doctrine. kept whole otherwise: Extended mind's figure of the whole is for answers, not documents |
 | session design | ~ | `rules/session-design.md` | merged into `prompts/mecha-suit.md` with its "one beat per turn" paragraph, no rule file: the robot does not get it |
 | rule: delegation | ~ | `opencode-rules/delegation.md` | copied; the session trusts the report and does not check the work again, "independent review" cut so GPT does not skip the cycle's reviewers |
-| skill: security gate | * | spec §15; `~/.claude/philosophy/kairos-gates.md` | a skill, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. One skill per gate, the coach's concerns among them; most gates fire at the same moment; a gate runs in a subagent most of the time, so the agent that wrote the work does not review it. Open: the list of gates and where each fires |
+| skill: security gate | * | spec §15; `~/.claude/philosophy/kairos-gates.md` | a skill, not a rule: the corporate harness holds the security rules. A kairos gate, a step of the loop where the practice is applied at the moment it applies. One skill per gate; the coach's concerns are gates. They run once, in subagents, on the diff of the stage at its end, so the agent that wrote the work does not review it: stages are not released on their own at first, and a flaw is fixed before the stage closes. A design review may open each stage, on the approach before the code. Not drafted. Open: the full list of gates |
 | skill: study | ~ | `skills/study-making` | walked. Copied, the aggregate-identification dispatch left out. Prototyping is left out: it is a practice used while coding, to be brought in later with an explanation for the users |
-| skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | it forbids recording unresolved questions |
-| skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | reworked on the commit cycle above. It settles the mecha suit's "nothing enters the code that a navigator did not say" against commits made in a row below the author's level |
-| skill: commit | ~ | `old-claude/skills/atomic-commit`, `old-claude/agents/committer.md` | walked. Kept as written: what counts as one change and what does not, the red flags, the subject rules, stage by name, never amend, never push. Left out: the committer sub-agent with its wrapper script and hook, the triggers forcing TDD and atomic refactoring, "one refactoring move" as a unit, gitmoji. The gate (validated, then it lands) belongs to the stage, with the coach |
-| skill: review walkthrough | ~ | `old-claude/skills/review-walkthrough` | |
-| skill: testing | ~ | `old-claude/skills/test`, `in-memory-adapters`, `old-claude/rules/test-types.md`, `no-mockito.md` | Java and Kotlin, to redo for Python; evidence reporting and concurrent requests have no source |
-| skill: clean code, Python | = | `skills/clean-code-python` | |
-| skills: ongoing-work, handover | = | `skills/` | |
-| skill: kaizen | ~ | `skills/kaizen` | depends on the philosophy scout |
-| skill: ascii | * | a third in `rules/writing.md`; spec §17 | |
-| agents: plan reviewer, stage reviewer | * | checklist in `write-plan` phase 5; spec §10 | whether they stay |
+| skill: plan | ~ | `old-claude/skills/write-plan`, `safe-rollout` | walked. The plan records no unresolved question: GPT writes down everything without asking. Every leaf stage is a session (1.1, 1.2); a group is not. A stage needs only its north star, on top, shown to the user; the rest is what helps the agent. A done stage is one line where it stands |
+| skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | drafted in `skills/stage/`. To fix: the gates fire per candidate there, against the security gate row. Open, defaults written: (12) the navigator speaks at their level, the agent cuts the commits; a series is shown in one look, validated once, landed in a row, and stops at the first commit bringing a new behaviour, domain word or design choice; else each commit validated. (13) autopilot kept, commits land unvalidated, the walkthrough becomes required; else no autopilot in a stage. (14) a small blocker is the next commit, a large one a new stage before; else nested sub-stages. (16) a stage may run without a plan, the need as north star, a branch proposed on the default branch; else a minimal plan always |
+| skill: commit | ~ | `old-claude/skills/atomic-commit`, `old-claude/agents/committer.md` | walked, drafted in `skills/commit/`. Kept as written: what counts as one change and what does not, the red flags, the subject rules, stage by name, never amend, never push. Left out: the committer sub-agent with its wrapper script and hook, the triggers forcing TDD and atomic refactoring, "one refactoring move" as a unit, gitmoji. The gate (validated, then it lands) belongs to the stage, with the coach |
+| skill: review walkthrough | ~ | `old-claude/skills/review-walkthrough` | drafted in `skills/review-walkthrough/` |
+| skill: testing | ~ | `old-claude/skills/test`, `in-memory-adapters`, `old-claude/rules/test-types.md`, `no-mockito.md` | walked, drafted in `skills/testing/`, Python, pytest, in-memory adapters, no mocks of your own code. The suite before a commit is the users' pre-commit hooks. No "seen failing" step: no TDD for now. The doctrine applies to new tests; an existing test is never rewritten in passing, its assertions follow a changed behaviour, a rewrite may be suggested in one line. The agent never runs tests: it asks the user (`AGENTS.md`). A new test dependency is the user's call |
+| skill: clean code, Python | = | `skills/clean-code-python` | copied |
+| skills: ongoing-work, handover | = | `skills/` | copied; the breadcrumb example uses a refunds domain, "CLAUDE.md" is "AGENTS.md" |
+| skill: kaizen | ~ | `skills/kaizen` | copied, the philosophy layer and the transcript analyzer cut. Open, default written: (20) the agent gathers the evidence itself; else a new agent reading OpenCode's session storage |
+| skill: ascii | * | a third in `rules/writing.md`; spec §17 | drafted in `skills/ascii/`, standalone, examples in a refunds domain. Open, defaults written: (17) standalone, as subagents do not load the napkin prompt; else a pointer to `back-of-the-napkin.md`. (18) the same marks in every figure (`[x] [ ] [?]`, `<-- YOU ARE HERE`, `⚠`); else a legend only when needed. (19) probing how an agent draws goes to acceptance |
+| agents: plan reviewer, stage reviewer | * | checklist in `write-plan` phase 5; spec §10 | drafted in `agents/`, both read-only. The plan reviewer stays and checks order and slicing only. To fix: the stage reviewer runs tests in worktrees, against `AGENTS.md`. Open, default written: (15) the stage reviewer runs at every stage end, before the walkthrough, its findings opening it; else only on request |
 | acceptance of the harness | * | spec §16 | to check: drawings use the project's domain, not the ticket shop of the whiteboard's examples |
-| tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | |
+| `AGENTS.md` | * | | the harness cannot run tests: the user runs them, the agent asks which ones |
+| tools: `run`, `grab-notebook`, private tmpdir plugin | = | `tools/`, `plugins/private-tmpdir.ts` | copied, checked running |
 
 The spec is the user's first brief (`brief.md`), kept as the source of the new elements; where it and the model above disagree, the model wins.
 
@@ -108,7 +109,8 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, step by step, in table order. ← next: skill: plan
+- [ ] Walk the elements, step by step, in table order. ← next: settle the open decisions (12) to (22), then fix the drafts: stage gates at the stage end, the stage reviewer runs no tests
+  - [ ] the copied prompts against the coach chain. Open, defaults: (21) `mecha-suit.md` "A turn that changed a file closes with its commit" lets GPT commit before validation: `backend-coach.md` adds "a commit lands only once the user validates it", later in the chain; (22) `doctrine.md` "the message saying what was done" against the model: "the subject says what, the body why". Also: the `φ` Rationale lines left in `prompts/` and `rules/documents.md`
   - Each copied element: the language simplified only where it is too verbose.
   - [ ] lean files: GPT writes down all that was said and done, and work files reach thousands of tokens. Each file gets a good picture, a bad figure and a rule, in its own text; the doctrine holds the attractors. "Backlog" is fine; "changelog" is the word that pulls wrong. Probes need a GPT client, none on this machine.
 
@@ -120,6 +122,6 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
     | study | the ruling, not the trial: the conclusion and its consequence | keeping score; taken down in evidence; the file kept on someone | only what has an impact stays (Chekhov's gun) |
 
   - [ ] testing practice
-  - [ ] the others, in table order
+  - [ ] security gate, acceptance
 - [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
 - [ ] Send the repository to its users.

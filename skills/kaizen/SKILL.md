@@ -1,0 +1,91 @@
+---
+name: kaizen
+description: Trigger word: "kaizen". Loaded for any work on the harness: a rule, a skill, an agent, a tool.
+---
+
+# Harness improvement
+
+## Doctrine
+
+- Kaizen is a session, not an edit request: a decision taken is written at once, and the next round starts.
+- Feedback lands at the lowest layer that absorbs it: the know-how first, the doctrine when the know-how could not.
+- Reorient before compensating: rename, reshape the flow, compensate last and say so.
+- A fix at the first cause, shaped like the incident, is tampering (Deming): it swings the pendulum. A few whys (Ohno) reach the pull.
+- The harness is not responsible for a misprompt.
+
+## The session
+
+Kaizen is its own activity. Its temporary file survives `/clear` in the same environment, not a container restart.
+
+```
+ opening   `bash <skill-base>/scripts/grab-kaizen-file.sh` creates the private file; record groups ──▶ the user picks
+ round     one group: evidence ──▶ attractors ──▶ verdict ──▶ decision ──▶ edit, commit ──▶ probe, when possible;
+           distill the file with the selection, evidence, verbatim transcript search anchors and next open move
+ handover  when crossing `/clear`, point to the file's absolute path, not its contents;
+           the successor runs `bash <skill-base>/scripts/grab-kaizen-file.sh <absolute-path>` to reopen it
+```
+
+Replace `<skill-base>` with this skill's absolute directory, not the current working directory. The tool prints the path; it requires a private `TMPDIR` and refuses missing, non-private or out-of-directory files. If the user provides a Kaizen file on entry, reopen it rather than creating another.
+
+The frame below is the agent's composition grid: it guides the photographer, and the user sees only the picture.
+
+## Opening
+
+Everything noted during the session goes on the table, even minor, grouped by the pull they share: the misses that one root cause explains are one group, one round, one fix. A group is named in the session's words, never from a fixed list, and never by the mechanism of the fix. One number per group. The user answers with the numbers; the rest is dropped on purpose: a miss with no pattern yet is not worth a round. A miss is the harness's when a loaded line pulled toward it or failed to pull against it, a doubt the agent could have raised included; it is the request's when the words asked for it and nothing loaded could have told. The request's go on the table in their own group, named so, dropped by default: the user reclaims one the harness should have caught.
+
+> **Kaizen.** Seven things went wrong this session, four pulls and one misprompt. Which do we address? Give the numbers; the rest are dropped.
+>
+> 1. The file before the terrain
+>    - a probe skipped as "clear enough" was wrong
+>    - the study file was created before any probe ran
+> 2. The trigger word carried by the artifact
+>    - `handover` fired on reading a handover, not on a request for one
+> 3. Written from my context, not yours
+>    - the handover named a sub-agent by its number
+>    - the study's synthesis was prose where a flow would have shown it
+> 4. A tool miss, no pattern
+>    - one edit failed on a quote, retried
+> 5. The request's, not the harness's
+>    - the rename asked for was the wrong name, done as asked
+
+## Round
+
+One group per turn. The turn holds: the moment in plain words, the user's own words quoted, why it is an issue; the attractors, each by its words, where it sits and how it pulled, the doctrine among them; the verdict; the lines that change; the same pull elsewhere in the harness. The user decides, and the edit lands before the next group. Before the edit, a line is tested against the cases it was right about: one that would now miss them is the pendulum. The lines of the element being written: Writing an element, below.
+
+```
+ know-how followed, went wrong      ──▶ rewrite the know-how
+ several pulls on the same agent    ──▶ level design: what loads together, where each sits
+ doctrine not complied with         ──▶ the step pulling against it, or the aphorism's place
+ doctrine complied with, unfit      ──▶ rewrite the doctrine
+```
+
+An edit is probed before its round closes, whenever what it governs can be produced on demand: what the agent writes in the chat always can. The brief is a real case from the session: the situation, the raw material, and a pointer to the edited element alone. The user validates the expected output once, and the unwanted one is kept beside it. Fresh sub-agents of the type the element is for each produce what the element governs, and the edit is judged by how many of them reach the expected. The brief is the constant: never edited between rounds. A probe that misses is the next round's evidence.
+
+A gate lost to the pull of the task, a stop or a hand-back skipped: the gated action becomes the turn's deliverable. "Execute" while a question stands gets the list of open questions, not an edit; the agent never answers them in the user's place.
+
+> **1. The file before the terrain.** The study file came before the first probe; you said "the probe is the study, the file is its trace". The file fixed the lens before the terrain spoke.
+>
+> ```
+>  attractor                                            sits in                     pull
+>  ─────────────────────────────────────────────────── ─────────────────────────── ──────────────────────────
+>  "Say the hypothesis, then probe it"                  study, doctrine             probe first        weak: 7th of 7
+>  "Skeleton. Same turn, right after the calibration"   study, know-how             file first         strong: an order
+>  "create docs/studies/…", a path                      same step                   a tool call to make now
+>  "make a study", your words                           the request                 a thing to produce
+>  ──▶ three pulls to the file, one to the probe: doctrine not complied with, the step changes
+> ```
+>
+> `study`: ~~Same turn, right after the calibration~~ {+Once the first probe has answered+}
+>
+> Same pull in `handover` and `ongoing-work`: fix there too, or one doctrine line above all three?
+
+## Writing an element
+
+- Held goes unsaid: what the weights, OpenCode's docs or the loaded context already hold is not written; what departs from the default is.
+- Pointers, not copies, DRY (Hunt & Thomas): a fact has one home and everything else points to it; a copy steers harder than its original, and the two drift apart. A projection is the exception: the small part a neighbour needs, restated there to spare loading the whole home.
+- Named after the concept, never the symptom it was written against.
+- An example only where the line is ambiguous without one: the line first, the illustration after, anonymous. A violation named only when the current models produce it unprompted, by its own name.
+- A rule holds one concept, so a fix reads and edits one file; a rule that needs explaining to apply is a skill.
+- A skill is written from mocks: the chat as the user would see it, one message at a time, validated. Doctrine identifiable, know-how after it.
+- A description is an activation line, matched against the session and listed in every prompt, main and sub-agent alike. User-invoked: the trigger word first, as the user says it. Model-invoked: the situation in one sentence, in the session's words. A boundary only on an observed mis-fire.
+- An agent is one step's context: the skills and facts that step needs, nothing of the step before or after; the workflow skill dispatches to it and does not run the step itself.
