@@ -71,7 +71,7 @@ STAGE 2 ............ a new session
 
 - The philosophy layer stays out; the doctrine / know-how split is kept in each element.
 - Know-how is not cut, and a little is added: OpenCode with GPT models needs it.
-- No TDD. A full testing practice is its own later point.
+- No TDD, no coverage: practices brought in later.
 - Everything that ends up in the harness, every prompt, rule, skill and agent, copied or new, is written in plain, basic, terse English: short sentences, common words, no idiom. The users are French: a word with a Latin root (rival, concept, restate) is plain to them; a phrasal verb or a Germanic idiom is not. Not every user is fluent in English, and GPT writes in the register of its context, so the instructions are the example. Attractors stay precise, always: the field's terms and its names (cognitive load, race condition, dependency inversion, Tufte) are never simplified.
 
 ## Elements
@@ -91,7 +91,7 @@ Each is walked before it is built: added, removed or updated. The user settles o
 | skill: stage execution | ~ | `old-claude/skills/mob-from-plan` | drafted in `skills/stage/`. The navigator speaks at their level, the agent cuts the commits: a series below that level is shown in one look, validated once, landed in a row, and stops at the first commit bringing a new behaviour, domain word or design choice. Autopilot is kept, its commits landing unvalidated; the stage end stays the same. A small blocker is the next commit, a large one a new stage before. A stage may run without a plan, the need as north star, a branch proposed on the default branch. |
 | rule: git | * | Claude Code's git lines; `old-claude/skills/atomic-commit` | written in `rules/git.md`, no commit skill: the only source of truth for git, against GPT's reflex and OpenCode's shipped prompt that check the tree again and again. The agent is the only one in the repository; git is for committing and reading history, never for checking. When to commit stays with the primaries and the stage. The convention is Angular's, written in the rule: nothing is asked |
 | skill: review walkthrough | ~ | `old-claude/skills/review-walkthrough` | drafted in `skills/review-walkthrough/`; proposed at every stage end, never required; the stage reviewers' issues open it |
-| skill: testing | ~ | `old-claude/skills/test`, `in-memory-adapters`, `old-claude/rules/test-types.md`, `no-mockito.md` | walked, drafted in `skills/testing/`, Python, pytest, in-memory adapters, no mocks of your own code. The suite before a commit is the users' pre-commit hooks. No "seen failing" step: no TDD for now. The doctrine applies to new tests; an existing test is never rewritten in passing, its assertions follow a changed behaviour, a rewrite may be suggested in one line. The agent never runs tests, nor the type checker once the project has one: it asks the user (`AGENTS.md`). A new test dependency is the user's call |
+| skill: testing | ~ | `old-claude/skills/test`, `in-memory-adapters`, `old-claude/rules/test-types.md`, `no-mockito.md` | walked, drafted in `skills/testing/`, Python, pytest, in-memory adapters, no mocks of your own code. The tested cases are co-designed: the agent proposes them as examples, asks only about the open ones; the how is left to emerge with the users. The suite before a commit is the users' pre-commit hooks. No "seen failing" step: no TDD for now. The doctrine applies to new tests; an existing test is never rewritten in passing, its assertions follow a changed behaviour, a rewrite may be suggested in one line. The agent never runs tests, nor the type checker once the project has one: it asks the user (`AGENTS.md`). A new test dependency is the user's call |
 | skill: clean code, Python | = | `skills/clean-code-python` | copied |
 | skills: ongoing-work, handover | = | `skills/` | copied; the breadcrumb example uses a refunds domain, "CLAUDE.md" is "AGENTS.md" |
 | skill: kaizen | ~ | `skills/kaizen` | copied, the philosophy layer and the transcript analyzer cut. The agent gathers the evidence itself |
@@ -108,9 +108,7 @@ OpenCode wiring, as the base does it: primaries declared in `opencode.json` as c
 
 ## Steps
 
-- [ ] Walk the elements, step by step, in table order. ← next: testing practice
+- [ ] Walk the elements, step by step, in table order. ← next: gates, acceptance
   - Each copied element: the language simplified only where it is too verbose.
-  - [ ] testing practice
-  - [ ] gates, acceptance
 - [ ] Build, in stages each leaving a harness that runs: skeleton with the three primaries; cycle skills; coach and review elements; kaizen; acceptance in a clean OpenCode install.
 - [ ] Send the repository to its users.

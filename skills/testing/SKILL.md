@@ -12,6 +12,7 @@ description: Writing or reviewing Python tests (pytest); a test double, a fake o
 - Test and code are written in any order. What counts is that they land together.
 - This doctrine applies to new tests. An existing test is never rewritten in passing, even when the change touches it.
 - Tests are the example mapping, written in code. A reader who does not code reads a test body and understands the business rule.
+- Which cases a behaviour is tested on is a domain question. The agent proposes the cases; the user stays in the choice, without carrying it.
 - A test asserts enough to exclude the plausible wrong implementations.
 - No mock of your own code: no `unittest.mock`, no `MagicMock`, no `patch`. A double behaves like the real thing: a fake with real state, an in-memory adapter. A mock is a tool to isolate, never the thing under test.
 - Time, randomness and external effects are controlled: they enter as arguments.
@@ -39,6 +40,10 @@ pytest -m "not integration"                         # skip tests with a marker
 ```
 
 A failing test is never skipped, marked `xfail`, deleted or weakened to make the suite pass. A test that already failed before the change is reported to the user at once, not fixed in passing and not hidden.
+
+### Choosing the cases
+
+Propose the cases with the change, as concrete examples in the user's words: "Alice cancels before shipping: refunded. After shipping: ?". Ask only about a case whose outcome you do not know, or one the user may not have thought of. A case that follows from what they said is listed, not asked. How the cases are agreed is open: find with the user what keeps them engaged without loading them.
 
 ### Test types
 
