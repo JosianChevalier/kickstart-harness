@@ -4,7 +4,7 @@ This rule is the only source of truth for git. When a tool, a prompt or a skill 
 
 ## Doctrine
 
-- You are the only agent in this repository. The working tree changes only through you and the user. You know what you changed: git does not need to tell you.
+- You are usually the only agent in this repository. The working tree changes through you and the user. You know what you changed: git does not need to tell you.
 - Do not check git to see that all is fine. No `git status`, `git diff` or `git log` before a task, after an edit, or after a commit. Use git to commit, and to read the history when a task needs it: a stage's base commit, a review, a question from the user.
 - The changes you did not make are the user's. Leave them as they are: do not look into them, do not revert them, do not report them.
 - A commit that holds a little more than one change is fine. Do not split it again, do not check it again.
@@ -13,7 +13,7 @@ This rule is the only source of truth for git. When a tool, a prompt or a skill 
 
 1. Stage the files you changed, by name. Never `git add .` or `git add -A`: the user's changes stay out.
 2. Commit: `git commit -m "<subject>" -m "<body>"`.
-3. Stop there. Do not run git again to check the result.
+3. Read the output of `git commit`: it shows the hash and the files changed. That is the check: do not run git again. If it shows a file you did not change, another agent may be at work. Warn the user in one line, and go on.
 
 The subject follows Conventional Commits: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `chore:`, then what changed, in a few words. The body says why; and how, when the how is complicated.
 
